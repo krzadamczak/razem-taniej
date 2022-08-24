@@ -1,11 +1,14 @@
-import logo from "./logo.svg";
 import "./App.css";
-import LoginButton from "./components/LoginButton";
+import { Link, Outlet } from "react-router-dom";
 
 function App() {
     return (
         <>
-            <LoginButton></LoginButton>
+            <nav>
+                <Link to='/'>Home</Link>
+            </nav>
+            <Outlet />
+            <footer>All rights reserved</footer>
         </>
     );
 }
