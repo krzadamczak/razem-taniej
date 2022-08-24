@@ -1,0 +1,61 @@
+Kilka słów o mnie
+
+Cześć! Moja przygoda z informatyką zaczęła się ponad dekadę temu, gdy w gimnazjum z zapałem tworzyłem proste aplikacje w C++, starając się zastosować w praktyce to, co Jerzy Grębosz zapisał w Symfonii C++. Śmiało mogę powiedzieć, że pasja do programowania towarzyszy mi od najmłodszych lat, ale to Internet i technologie z nim związane skradły moje serce w największym stopniu. Cała moja dotychczasowa ścieżka zaprowadziła mnie do miejsca w którym obecnie się znajduję: Java Script oraz wszystko co się z nim wiąże.
+---------
+
+Technologie
+
+Lubię tworzyć od podstaw i korzystać z nowych narzędzi. Bardzo cenię przemyślany i spójny design ukierunkowany w pełni na użykownika. Poniżej lista technologii którymi obecnie się zajmuję.
+---------
+
+Poprzednie doświadczenia ukierunkowały mnie na Java Script oraz wszystko co się z nim łączy.
+
+ zaowocowały szerszym spojrzeniem na kolejne języki których się uczyłem. Dzisiaj potrafię stworzyć a
+
+szerszego rozwoju, dzięki czemu na ten moment mogę skupić się na projektowaniu stron i aplikacji m.in. w takich technologiach jak:_________, w zakresie których ciągle zdobywam nową wiedzę i umiejętności. 
+
+
+
+Jak pracuję?
+
+W przeciągu ostatnich lat,  
+
+
+
+
+
+Ponad dekadę temu zacząłem pisać proste aplikacje w C++. 
+
+
+
+Zaczynałem od pisania prostych aplikacji kiedy byłem nastolatkiem. Po czasie zacząłem tworzyć coraz bardziej zaawansowane strony internetowe. 
+
+Cześć! Pasja do programowania towarzyszy mi od najmłodszych lat, ale to Internet i technologie z nim związane skradły moje serce. 
+
+
+piszę do Państwa list w sprawie pracy na stanowisku Frontend developer.
+Informatyka, a konkretnie programowanie, od dziecka było moją pasją.
+Zaczynałem nieśmiało, od HTML'a w podstawówce, żeby na początku
+gimnazjum zacząć prowadzić stronę szkoły. W gimnazjum również
+rozpoczęła się moja fascynacja C++, gdzie przy wielu upadkach i wzlotach,
+małymi krokami, próbowałem przyswoić to, co chciał przekazać Jerzy
+Grębosz w swojej książce Symfonia C++. Były to głównie małe programy w
+CMD, kalkulatory do gier online czy implementacje prostych algorytmów.
+Podążając za swoimi marzeniami, edukację kontynuowałem w technikum o
+profilu informatycznym. To wtedy moje oczy zwróciły się ku technologiom
+webowym, typu Java Script, CSS (SCSS) czy PHP, na których skupiam
+swoją uwagę do dnia dzisiejszego. Sporo czasu poświęciłem na naukę tych
+języków tworząc przy okazji szablony dla niewspieranego już CMS'a Koken.
+Zmierzam do tego, że pomimo braku studiów informatycznych oraz
+dotychczasowej pracy w innym zawodzie, jestem wierny swoim
+zainteresowaniom. Każdego dnia, staram się postawić kolejny, nawet
+niewielki krok, który przybliży mnie do ukończenia zaczętego projektu czy
+nauczenia się nowej rzeczy. W Państwa ogłoszeniu przykuło moją uwagę
+to, że jesteście również otwarci na osoby, które nie wiedzą wszystkiego, ale
+są gotowe do intensywnej pracy. Jestem osobą, która od zawsze lubiła się
+uczyć i samodzielnie szukać odpowiedzi. Lubię wiedzieć, w jaki sposób
+działa dana rzecz, żeby móc dogłębnie zrozumieć, a następnie rozwiązać
+dany problem. Jako pracownik angażuję się w życie firmy, jeżeli mam
+pomysł, że coś może funkcjonować lepiej, chętnie się nim dzielę dalej.
+Interesuje mnie współpraca, dzięki której mogę się rozwijać, oraz dać coś od
+siebie
