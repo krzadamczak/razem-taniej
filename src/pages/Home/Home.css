@@ -1,0 +1,57 @@
+.hero {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+}
+.hero__inner {
+    width: 20%;
+}
+.hero__description {
+    font-size: 2.25rem;
+}
+.hero__catchphrase {
+    margin-top: 50px;
+    font-size: 1.125rem;
+    font-weight: 800;
+}
+.hero__icon {
+    width: 50%;
+}
+.where-to-go {
+    background-image: url("./Home_2.svg");
+    background-size: cover;
+    position: relative;
+}
+.where-to-go__inner {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+.where-to-go__form {
+    display: flex;
+    gap: 50px;
+}
+.label {
+    font-weight: 800;
+    padding-left: 15px;
+}
+.input {
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+.button {
+    border-radius: 10px;
+    background-color: #007bfa;
+    color: #fff;
+    font-weight: 800;
+    padding: 5px 10px;
+    border: none;
+}
+.where-to-go__mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: hsla(0, 0%, 100%, 0.8);
+}

@@ -1,0 +1,9 @@
+.nav__wrapper {
+    display: flex;
+    gap: 50px;
+}
+.nav__link {
+    font-weight: 800;
+    text-decoration: none;
+    color: #000;
+}

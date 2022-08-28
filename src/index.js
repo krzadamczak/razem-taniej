@@ -4,13 +4,13 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Auth0ProviderWithistory from "./auth/Auth0ProviderWithHistory";
 
-import IndexLayout from "./Layouts/IndexLayout";
-import HomeLayout from "./Layouts/HomeLayout";
+import IndexLayout from "./pages/IndexLayout";
+import HomeLayout from "./pages/Home/Home";
 
 import "./index.css";
-import TracksLayout from "./Layouts/TracksLayout";
-import LoginLayout from "./Layouts/LoginLayout";
-import RegisterLayout from "./Layouts/RegisterLayout";
+import TracksLayout from "./pages/Tracks/TracksLayout";
+import LoginLayout from "./pages/Login/Login";
+import RegisterLayout from "./pages/RegisterLayout";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

@@ -1,12 +1,18 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+
 import Footer from "../components/Footer";
-import Navigation from "../components/Navigation";
+import Navigation from "../components/Navigation/Navigation";
+
+import "./IndexLayout.css";
 
 const IndexLayout = () => {
     return (
         <>
-            <Navigation />
+            <header className='header'>
+                <span className='company-name'>RAZEM TANIEJ</span>
+                <Navigation />
+            </header>
             <Outlet />
             <Footer />
         </>

@@ -1,0 +1,8 @@
+.header {
+    display: flex;
+    margin: 50px 150px;
+    justify-content: space-between;
+}
+.company-name {
+    font-weight: 800;
+}
