@@ -36,6 +36,36 @@ const HomeLayout = () => {
                     </div>
                 </div>
             </div>
+            <div className='last-added-tracks'>
+                <h2 className='h2 last-added-tracks__h2'>Ostatnio dodane trasy</h2>
+                <div className='last-added-tracks__first-inner'>
+                    <div className='last-added-tracks__box'>
+                        <div className='last-added-tracks__path'>Poznań - Śrem</div>
+                        <div className='last-added-tracks__date'>Data wyjazdu: 28 lipiec 18:00</div>
+                    </div>
+                    <div className='last-added-tracks__box'>
+                        <div className='last-added-tracks__path'>Poznań - Śrem</div>
+                        <div className='last-added-tracks__date'>Data wyjazdu: 28 lipiec 18:00</div>
+                    </div>
+                    <div className='last-added-tracks__box'>
+                        <div className='last-added-tracks__path'>Poznań - Śrem</div>
+                        <div className='last-added-tracks__date'>Data wyjazdu: 28 lipiec 18:00</div>
+                    </div>
+                    <div className='last-added-tracks__box'>
+                        <div className='last-added-tracks__path'>Poznań - Śrem</div>
+                        <div className='last-added-tracks__date'>Data wyjazdu: 28 lipiec 18:00</div>
+                    </div>
+                    <div className='last-added-tracks__box'>
+                        <div className='last-added-tracks__path'>Poznań - Śrem</div>
+                        <div className='last-added-tracks__date'>Data wyjazdu: 28 lipiec 18:00</div>
+                    </div>
+                    <div className='last-added-tracks__box'>
+                        <div className='last-added-tracks__path'>Poznań - Śrem</div>
+                        <div className='last-added-tracks__date'>Data wyjazdu: 28 lipiec 18:00</div>
+                    </div>
+                </div>
+                <button className='button'>Zobacz wszystkie połączenia</button>
+            </div>
         </>
     );
 };

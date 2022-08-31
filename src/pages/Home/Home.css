@@ -1,3 +1,7 @@
+/* ====================
+    HERO
+=======================*/
+
 .hero {
     margin: auto;
     display: flex;
@@ -20,9 +24,14 @@
 .hero__icon {
     width: 50%;
 }
+
+/* ====================
+    WHERE-TO-GO
+=======================*/
 .where-to-go {
     position: relative;
     margin-top: 150px;
+    padding: 50px 0;
 }
 .where-to-go::before {
     content: "";
@@ -39,10 +48,10 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    gap: 50px;
 }
 .where-to-go__h2 {
     text-align: center;
-    margin: 50px 0;
 }
 .where-to-go__inner {
     display: flex;
@@ -73,9 +82,36 @@
     border: none;
     line-height: 1;
 }
-.where-to-go__mask {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: hsla(0, 0%, 100%, 0.8);
+
+/* ====================
+    LAST-ADDED-TRACKS
+=======================*/
+.last-added-tracks {
+    display: flex;
+    flex-direction: column;
+    margin: 150px auto;
+    width: 50%;
+    align-items: center;
+    gap: 50px;
+}
+.last-added-tracks__first-inner {
+    display: grid;
+    gap: 50px 100px;
+    grid-template-columns: repeat(3, 1fr);
+}
+.last-added-tracks__box {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid #f0f0f0;
+}
+.last-added-tracks__path {
+    font-weight: 800;
+}
+.last-added-tracks__date {
+    font-size: 0.75rem;
+    font-weight: 200;
 }

@@ -1,0 +1,8 @@
+.footer {
+    display: flex;
+    margin: 50px 150px;
+    justify-content: space-between;
+}
+.footer__copyright {
+    font-weight: 800;
+}
