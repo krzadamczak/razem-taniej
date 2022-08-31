@@ -18,7 +18,7 @@ const HomeLayout = () => {
             </div>
             <div className='where-to-go'>
                 <div className='where-to-go__z-index'>
-                    <h2 className='h2'>Gdzie chcesz jechać?</h2>
+                    <h2 className='h2 where-to-go__h2'>Gdzie chcesz jechać?</h2>
                     <div className='where-to-go__form'>
                         <div className='where-to-go__inner'>
                             <label className='label' htmlFor='start-place'>

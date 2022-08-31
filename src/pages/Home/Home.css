@@ -22,6 +22,7 @@
 }
 .where-to-go {
     position: relative;
+    margin-top: 150px;
 }
 .where-to-go::before {
     content: "";
@@ -32,10 +33,16 @@
     right: 0px;
     bottom: 0px;
     left: 0px;
-    opacity: 0.75;
+    opacity: 0.2;
 }
 .where-to-go__z-index {
     position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.where-to-go__h2 {
+    text-align: center;
+    margin: 50px 0;
 }
 .where-to-go__inner {
     display: flex;
@@ -44,23 +51,27 @@
 }
 .where-to-go__form {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 50px;
 }
 .label {
     font-weight: 800;
-    padding-left: 15px;
+    padding: 0 0 15px 15px;
 }
 .input {
     border-radius: 10px;
-    padding: 5px 10px;
+    padding: 15px;
+    border: none;
 }
 .button {
     border-radius: 10px;
     background-color: #007bfa;
     color: #fff;
     font-weight: 800;
-    padding: 5px 10px;
+    padding: 10px 25px;
     border: none;
+    line-height: 1;
 }
 .where-to-go__mask {
     position: absolute;
