@@ -5,6 +5,7 @@
     justify-content: center;
     gap: 100px;
 }
+
 .hero__inner {
     width: 20%;
 }
@@ -20,6 +21,20 @@
     width: 50%;
 }
 .where-to-go {
+    position: relative;
+}
+.where-to-go::before {
+    content: "";
+    background-image: url("./Home_2.svg");
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.75;
+}
+.where-to-go__z-index {
     position: relative;
 }
 .where-to-go__inner {
