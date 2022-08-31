@@ -20,8 +20,6 @@
     width: 50%;
 }
 .where-to-go {
-    background-image: url("./Home_2.svg");
-    background-size: cover;
     position: relative;
 }
 .where-to-go__inner {

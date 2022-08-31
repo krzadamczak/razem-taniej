@@ -2,6 +2,7 @@ import React from "react";
 
 import "./Home.css";
 import HomeIcon from "./Home_1.svg";
+import HomeBackground from "./Home_2.svg";
 
 const HomeLayout = () => {
     return (
@@ -32,8 +33,8 @@ const HomeLayout = () => {
                     </div>
                     <button className='button'>Szukaj</button>
                 </div>
-                <div className='where-to-go__mask'></div>
                 <div className='where-to-go__background'></div>
+                <div className='where-to-go__mask'></div>
             </div>
         </>
     );
