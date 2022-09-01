@@ -14,18 +14,16 @@ import Register from "./components/Register";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    <React.StrictMode>
-        <BrowserRouter>
-            <Auth0ProviderWithistory>
-                <Routes>
-                    <Route path='/' element={<IndexLayout />}>
-                        <Route index element={<HomeLayout />} />
-                        <Route path='trasy' element={<TracksLayout />} />
-                        <Route path='logowanie' element={<LoginLayout />} />
-                        <Route path='rejestracja' element={<Register />} />
-                    </Route>
-                </Routes>
-            </Auth0ProviderWithistory>
-        </BrowserRouter>
-    </React.StrictMode>
+    <BrowserRouter>
+        <Auth0ProviderWithistory>
+            <Routes>
+                <Route path='/' element={<IndexLayout />}>
+                    <Route index element={<HomeLayout />} />
+                    <Route path='trasy' element={<TracksLayout />} />
+                    <Route path='logowanie' element={<LoginLayout />} />
+                    <Route path='rejestracja' element={<Register />} />
+                </Route>
+            </Routes>
+        </Auth0ProviderWithistory>
+    </BrowserRouter>
 );

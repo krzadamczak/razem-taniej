@@ -6,7 +6,7 @@ const Register = () => {
     const { loginWithRedirect } = useAuth0();
 
     useEffect(() => {
-        loginWithRedirect({ screen_hint: "signUp" });
+        loginWithRedirect({ screen_hint: "signup", redirect_uri: "https://localhost:3000/" });
     }, [loginWithRedirect]);
     return <div>Register</div>;
 };
