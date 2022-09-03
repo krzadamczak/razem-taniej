@@ -1,7 +1,12 @@
-import React from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+import React, { useEffect } from "react";
 
-const LoginLayout = () => {
-    return <div>LoginLayout</div>;
+const Login = () => {
+    const { loginWithRedirect } = useAuth0();
+
+    useEffect(() => {
+        loginWithRedirect();
+    });
 };
 
-export default LoginLayout;
+export default Login;

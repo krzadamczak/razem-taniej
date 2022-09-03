@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../../components/Button/Button";
 
 import "./Home.css";
 import HomeIcon from "./Home_1.svg";
@@ -32,7 +33,7 @@ const HomeLayout = () => {
                             </label>
                             <input className='input' type='text' id='end-place' />
                         </div>
-                        <button className='button'>Szukaj</button>
+                        <Button modifier='button--primary'>Szukaj</Button>
                     </div>
                 </div>
             </div>
@@ -64,7 +65,7 @@ const HomeLayout = () => {
                         <div className='last-added-tracks__date'>Data wyjazdu: 28 lipiec 18:00</div>
                     </div>
                 </div>
-                <button className='button'>Zobacz wszystkie połączenia</button>
+                <Button modifier='button-primary'></Button>
             </div>
         </>
     );
