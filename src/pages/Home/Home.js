@@ -3,7 +3,6 @@ import Button from "../../components/Button/Button";
 
 import "./Home.css";
 import HomeIcon from "./Home_1.svg";
-import HomeBackground from "./Home_2.svg";
 
 const HomePage = () => {
     return (
