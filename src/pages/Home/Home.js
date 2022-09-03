@@ -5,7 +5,7 @@ import "./Home.css";
 import HomeIcon from "./Home_1.svg";
 import HomeBackground from "./Home_2.svg";
 
-const HomeLayout = () => {
+const HomePage = () => {
     return (
         <>
             <div className='hero'>
@@ -71,4 +71,4 @@ const HomeLayout = () => {
     );
 };
 
-export default HomeLayout;
+export default HomePage;

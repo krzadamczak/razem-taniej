@@ -11,9 +11,7 @@ const Button = (props) => {
     } else {
         extendedClassName.push("button");
     }
-    useEffect(() => {
-        console.log(props);
-    });
+
     return <button {...props} className={extendedClassName.join(" ")}></button>;
 };
 

@@ -1,7 +1,7 @@
 import React from "react";
 
-const TracksLayout = () => {
-    return <div>TracksLayout</div>;
+const TracksPage = () => {
+    return <div>TracksPage</div>;
 };
 
-export default TracksLayout;
+export default TracksPage;
