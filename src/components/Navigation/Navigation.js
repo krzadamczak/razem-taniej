@@ -5,7 +5,7 @@ import "./Navigation.css";
 import Button from "../Button/Button";
 
 const Navigation = () => {
-    const { isAuthenticated, isLoading, logout } = useAuth0();
+    const { isAuthenticated, isLoading, logout, loginWithRedirect } = useAuth0();
     useEffect(() => {
         console.log({ isAuthenticated });
         //console.log pojawia się dwa razy, dlaczego?
@@ -13,6 +13,12 @@ const Navigation = () => {
     }, [isAuthenticated]);
     const logoutHandler = () => {
         logout({ returnTo: window.location.origin });
+    };
+    const loginHandler = () => {
+        loginWithRedirect();
+    };
+    const registerHandler = () => {
+        loginWithRedirect({ screen_hint: "signup" });
     };
     return (
         <nav className='nav'>
@@ -29,14 +35,14 @@ const Navigation = () => {
                     </NavLink>
                 )}
                 {!isAuthenticated && !isLoading && (
-                    <Link className='nav__link' to='/logowanie'>
+                    <Button modifier='button--login' onClick={loginHandler}>
                         Zaloguj się
-                    </Link>
+                    </Button>
                 )}
                 {!isAuthenticated && !isLoading && (
-                    <Link className='nav__link' to='/rejestracja'>
+                    <Button modifier='button--register' onClick={registerHandler}>
                         Zarejestruj się
-                    </Link>
+                    </Button>
                 )}
                 {isAuthenticated && !isLoading && (
                     <Button modifier='button--navigation' onClick={logoutHandler}>
