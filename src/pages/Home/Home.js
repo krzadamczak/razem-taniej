@@ -23,16 +23,10 @@ const HomePage = () => {
                     <h2 className='h2 where-to-go__h2'>Gdzie chcesz jechać?</h2>
                     <div className='where-to-go__form'>
                         <div className='where-to-go__inner'>
-                            <label className='label' htmlFor='start-place'>
+                            <Label className='label' htmlFor='start-place'>
                                 Miejsce wyjazdu
-                            </label>
-                            <input className='input' type='text' id='start-place' />
-                        </div>
-                        <div className='where-to-go__inner'>
-                            <label className='label' htmlFor='end-place'>
-                                Miejsce docelowe
-                            </label>
-                            <input className='input' type='text' id='end-place' />
+                            </Label>
+                            <Input className='input' type='text' id='start-place' />
                         </div>
                         <div className='where-to-go__inner'>
                             <Label className='label' htmlFor='end-place'>
