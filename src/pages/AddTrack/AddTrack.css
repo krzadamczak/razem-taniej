@@ -1,0 +1,15 @@
+.add-track {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+.add-track__form {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.add-track__inner {
+    display: flex;
+    flex-direction: column;
+}
