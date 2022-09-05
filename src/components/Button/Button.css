@@ -12,6 +12,9 @@
     color: #fff;
     padding: 10px 25px;
 }
-.button--navigation {
+.button--red {
     color: #eb5648;
+}
+.button--blue {
+    color: #3a72aa;
 }

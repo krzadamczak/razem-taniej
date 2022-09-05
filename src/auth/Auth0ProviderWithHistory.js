@@ -8,7 +8,7 @@ const Auth0ProviderWithHistory = ({ children }) => {
     const history = useNavigate();
 
     const onRedirectCallback = (appState) => {
-        console.log({ appState });
+        history(appState?.returnTo || "/", { replace: true });
     };
 
     return (
@@ -17,7 +17,8 @@ const Auth0ProviderWithHistory = ({ children }) => {
             clientId={clientId}
             redirectUri={window.location.origin}
             onRedirectCallback={onRedirectCallback}
-            cacheLocation='localstorage'>
+            cacheLocation='localstorage'
+            useRefreshTokens={true}>
             {children}
         </Auth0Provider>
     );

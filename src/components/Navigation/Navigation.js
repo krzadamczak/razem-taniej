@@ -6,6 +6,7 @@ import Button from "../Button/Button";
 
 const Navigation = () => {
     const { isAuthenticated, isLoading, logout, loginWithRedirect } = useAuth0();
+    console.log({ isAuthenticated });
 
     const logoutHandler = () => {
         logout({ returnTo: window.location.origin });
@@ -22,26 +23,31 @@ const Navigation = () => {
                 <NavLink className='nav__link' to='/'>
                     Strona główna
                 </NavLink>
-                <NavLink className='nav__link' to='/trasy'>
-                    Trasy
+                <NavLink className='nav__link' to='/przejazdy'>
+                    Przejazdy
                 </NavLink>
+                {isAuthenticated && !isLoading && (
+                    <NavLink className='nav__link' to='/dodaj-przejazd'>
+                        Dodaj nowy przejazd
+                    </NavLink>
+                )}
                 {isAuthenticated && !isLoading && (
                     <NavLink className='nav__link' to='/profil'>
                         Profil
                     </NavLink>
                 )}
                 {!isAuthenticated && !isLoading && (
-                    <Button modifier='button--login' onClick={loginHandler}>
+                    <Button modifier='button--blue' onClick={loginHandler}>
                         Zaloguj się
                     </Button>
                 )}
                 {!isAuthenticated && !isLoading && (
-                    <Button modifier='button--register' onClick={registerHandler}>
+                    <Button modifier='button--red' onClick={registerHandler}>
                         Zarejestruj się
                     </Button>
                 )}
                 {isAuthenticated && !isLoading && (
-                    <Button modifier='button--navigation' onClick={logoutHandler}>
+                    <Button modifier='button--red' onClick={logoutHandler}>
                         Wyloguj się
                     </Button>
                 )}

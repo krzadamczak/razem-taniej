@@ -5,9 +5,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Auth0ProviderWithistory from "./auth/Auth0ProviderWithHistory";
 import IndexLayout from "./pages/IndexLayout";
 import HomePage from "./pages/Home/Home";
-import TracksPage from "./pages/Tracks/TracksLayout";
+import Tracks from "./pages/Tracks/Tracks";
 
 import "./index.css";
+import AddTrack from "./pages/AddTrack/AddTrack";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -16,7 +17,8 @@ root.render(
             <Routes>
                 <Route path='/' element={<IndexLayout />}>
                     <Route index element={<HomePage />} />
-                    <Route path='trasy' element={<TracksPage />} />
+                    <Route path='przejazdy' element={<Tracks />} />
+                    <Route path='dodaj-przejazd' element={<AddTrack />} />
                 </Route>
             </Routes>
         </Auth0ProviderWithistory>

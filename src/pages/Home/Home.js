@@ -1,5 +1,7 @@
 import React from "react";
 import Button from "../../components/Button/Button";
+import Input from "../../components/Input/Input";
+import Label from "../../components/Label/Label";
 
 import "./Home.css";
 import HomeIcon from "./Home_1.svg";
@@ -31,6 +33,12 @@ const HomePage = () => {
                                 Miejsce docelowe
                             </label>
                             <input className='input' type='text' id='end-place' />
+                        </div>
+                        <div className='where-to-go__inner'>
+                            <Label className='label' htmlFor='end-place'>
+                                Miejsce docelowe
+                            </Label>
+                            <Input className='input' type='text' id='end-place' />
                         </div>
                         <Button modifier='button--primary'>Szukaj</Button>
                     </div>
