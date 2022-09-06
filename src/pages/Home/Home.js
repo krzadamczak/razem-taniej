@@ -34,7 +34,7 @@ const HomePage = () => {
                             </Label>
                             <Input className='input' type='text' id='end-place' />
                         </div>
-                        <Button modifier='button--primary'>Szukaj</Button>
+                        <Button variant='contained'>Szukaj</Button>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@ const HomePage = () => {
                         <div className='last-added-tracks__date'>Data wyjazdu: 28 lipiec 18:00</div>
                     </div>
                 </div>
-                <Button modifier='button-primary'></Button>
+                <Button variant='text'>Zobacz wszystkie połączenia</Button>
             </div>
         </>
     );
