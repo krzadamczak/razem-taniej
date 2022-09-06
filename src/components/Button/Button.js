@@ -2,17 +2,28 @@ import React from "react";
 import "./Button.css";
 
 const Button = (props) => {
-    let extendedClassName = [];
-    if (props.hasOwnProperty("modifier")) {
-        extendedClassName.push(props.modifier);
-    }
-    if (props.hasOwnProperty("className")) {
-        extendedClassName.push(props.className);
+    const settings = {
+        value: props.value,
+        onClick: props.onClick,
+        name: props.name,
+    };
+    const defaultClassName = "button";
+    let extendedClassName = [defaultClassName];
+    if (props.hasOwnProperty("variant")) {
+        extendedClassName.push(`${defaultClassName}--${props.variant}`);
     } else {
-        extendedClassName.push("button");
+        extendedClassName.push(`${defaultClassName}--contained`);
     }
 
-    return <button {...props} className={extendedClassName.join(" ")}></button>;
+    if (props.hasOwnProperty("externalPositioning")) {
+        extendedClassName.push(`${props.externalPositioning}__${defaultClassName}`);
+    }
+
+    return (
+        <button {...settings} className={extendedClassName.join(" ")}>
+            {props.children}
+        </button>
+    );
 };
 
 export default Button;

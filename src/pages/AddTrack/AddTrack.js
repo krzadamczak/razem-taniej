@@ -22,7 +22,7 @@ const AddTrack = () => {
                         </Label>
                         <Input className='input' type='text' id='end-place' />
                     </div>
-                    <Button modifier='button--primary'>Dodaj przejazd</Button>
+                    <Button variant='text'>Dodaj przejazd</Button>
                 </div>
             </div>
         </>

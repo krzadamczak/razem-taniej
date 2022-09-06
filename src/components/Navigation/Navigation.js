@@ -37,17 +37,17 @@ const Navigation = () => {
                     </NavLink>
                 )}
                 {!isAuthenticated && !isLoading && (
-                    <Button modifier='button--blue' onClick={loginHandler}>
+                    <Button variant='text' onClick={loginHandler}>
                         Zaloguj się
                     </Button>
                 )}
                 {!isAuthenticated && !isLoading && (
-                    <Button modifier='button--red' onClick={registerHandler}>
+                    <Button variant='contained' onClick={registerHandler}>
                         Zarejestruj się
                     </Button>
                 )}
                 {isAuthenticated && !isLoading && (
-                    <Button modifier='button--red' onClick={logoutHandler}>
+                    <Button variant='text' onClick={logoutHandler}>
                         Wyloguj się
                     </Button>
                 )}
