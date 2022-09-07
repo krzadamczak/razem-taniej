@@ -1,9 +1,11 @@
 const express = require("express");
 const app = express();
+const bodyParser = require("body-parser");
 
-app.get("/api/test", (req, res) => {
-    console.log("Hello World!");
-    res.send("!");
+app.use(bodyParser.json());
+
+app.post("/api/test", (req, res) => {
+    res.json({ response: "Request noticed!" });
 });
 
 app.listen(3001, () => {

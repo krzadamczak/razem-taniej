@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import Button from "../../components/Button/Button";
 import Input from "../../components/Input/Input";
@@ -9,7 +9,7 @@ const AddTrack = () => {
     const [newTrack, setNewTrack] = useState({
         startPlace: "",
         endPlace: "",
-        date: "",
+        // date: "",
     });
     const handleInputChange = (e) => {
         const { name, value } = e.currentTarget;
@@ -17,6 +17,19 @@ const AddTrack = () => {
             ...prevState,
             [name]: value,
         }));
+    };
+    const handleFormSubmit = () => {
+        fetch("/api/test", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newTrack),
+        })
+            .then((res) => {
+                return res.json();
+            })
+            .then((res) => console.log(res));
     };
     return (
         <>
@@ -50,7 +63,9 @@ const AddTrack = () => {
                         />
                     </div>
                     <input className='date' type='date' />
-                    <Button variant='text'>Dodaj przejazd</Button>
+                    <Button variant='text' onClick={handleFormSubmit}>
+                        Dodaj przejazd
+                    </Button>
                 </div>
             </div>
         </>
