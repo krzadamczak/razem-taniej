@@ -68,7 +68,7 @@
 /* ====================
     LAST-ADDED-TRACKS
 =======================*/
-.last-added-tracks {
+.last-added-routes {
     display: flex;
     flex-direction: column;
     margin: 150px auto;
@@ -76,12 +76,12 @@
     align-items: center;
     gap: 50px;
 }
-.last-added-tracks__first-inner {
+.last-added-routes__first-inner {
     display: grid;
     gap: 50px 100px;
     grid-template-columns: repeat(3, 1fr);
 }
-.last-added-tracks__box {
+.last-added-routes__box {
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -90,10 +90,10 @@
     border-radius: 10px;
     border: 1px solid #f0f0f0;
 }
-.last-added-tracks__path {
+.last-added-routes__path {
     font-weight: 800;
 }
-.last-added-tracks__date {
+.last-added-routes__date {
     font-size: 0.75rem;
     font-weight: 200;
 }

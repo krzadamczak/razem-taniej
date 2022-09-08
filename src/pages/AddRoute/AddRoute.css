@@ -1,15 +1,15 @@
-.add-track {
+.add-route {
     display: flex;
     margin: auto;
     justify-content: center;
 }
-.add-track__form {
+.add-route__form {
     width: 20%;
     display: flex;
     flex-direction: column;
     gap: 50px;
 }
-.add-track__inner {
+.add-route__inner {
     display: flex;
     flex-direction: column;
 }

@@ -5,10 +5,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Auth0ProviderWithistory from "./auth/Auth0ProviderWithHistory";
 import IndexLayout from "./pages/IndexLayout";
 import HomePage from "./pages/Home/Home";
-import Tracks from "./pages/Tracks/Tracks";
+import AllRoutes from "./pages/AllRoutes/AllRoutes";
+import AddRoute from "./pages/AddRoute/AddRoute";
 
 import "./index.css";
-import AddTrack from "./pages/AddTrack/AddTrack";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -17,8 +17,8 @@ root.render(
             <Routes>
                 <Route path='/' element={<IndexLayout />}>
                     <Route index element={<HomePage />} />
-                    <Route path='przejazdy' element={<Tracks />} />
-                    <Route path='dodaj-przejazd' element={<AddTrack />} />
+                    <Route path='przejazdy' element={<AllRoutes />} />
+                    <Route path='dodaj-przejazd' element={<AddRoute />} />
                 </Route>
             </Routes>
         </Auth0ProviderWithistory>
