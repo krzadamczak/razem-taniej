@@ -6,58 +6,54 @@ import "./AddRoute.css";
 
 const AddRoute = () => {
     const [newRoute, setNewRoute] = useState({
-        startPlace: "",
-        endPlace: "",
+        startingPlace: "",
+        destination: "",
         // date: "",
     });
     const handleInputChange = (e) => {
         const { name, value } = e.currentTarget;
-        setNewRoute((prevState) => ({
-            ...prevState,
+        setNewRoute((prevNewRoute) => ({
+            ...prevNewRoute,
             [name]: value,
         }));
     };
     const handleFormSubmit = () => {
-        fetch("/api/test", {
+        fetch("/api/route", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(newRoute),
-        })
-            .then((res) => {
-                return res.json();
-            })
-            .then((res) => console.log(res));
+        });
     };
     return (
         <>
             <div className='add-route'>
                 <div className='add-route__form'>
                     <div className='add-route__inner'>
-                        <Label className='label' htmlFor='start-place'>
+                        <Label className='label' htmlFor='startingPlace'>
                             Miejsce wyjazdu
                         </Label>
                         <Input
                             className='input'
-                            name='startPlace'
-                            value={newRoute.startPlace}
+                            name='startingPlace'
+                            value={newRoute.startingPlace}
                             type='text'
-                            id='start-place'
+                            id='startingPlace'
                             onChange={handleInputChange}
                         />
                     </div>
 
                     <div className='add-route__inner'>
-                        <Label className='label' htmlFor='end-place'>
+                        <Label className='label' htmlFor='destination'>
                             Miejsce docelowe
                         </Label>
                         <Input
                             className='input'
-                            name='endPlace'
-                            value={newRoute.endPlace}
+                            name='destination'
+                            value={newRoute.destination}
                             type='text'
-                            id='end-place'
+                            id='destination'
                             onChange={handleInputChange}
                         />
                     </div>
