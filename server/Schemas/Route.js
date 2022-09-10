@@ -5,7 +5,7 @@ const routeSchema = new mongoose.Schema({
     destination: String,
     departureTime: String,
     arrivalTime: String,
-    date: Date,
+    departureDate: Date,
 });
 
 module.exports = mongoose.model("Route", routeSchema);

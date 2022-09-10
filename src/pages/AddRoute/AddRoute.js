@@ -3,7 +3,8 @@ import Button from "../../components/Button/Button";
 import Input from "../../components/Input/Input";
 import Label from "../../components/Label/Label";
 import "./AddRoute.css";
-
+// Czy lepiej trzymać czas i datę wyjazdu w osobnych atrybutach w bazie danych,
+// czy w trakcie wypełniania formularza połączyć w jeden atrybut departureDate?
 const AddRoute = () => {
     const [newRoute, setNewRoute] = useState({
         startingPlace: "",
@@ -30,34 +31,76 @@ const AddRoute = () => {
         <>
             <div className='add-route'>
                 <div className='add-route__form'>
-                    <div className='add-route__inner'>
-                        <Label className='label' htmlFor='startingPlace'>
-                            Miejsce wyjazdu
-                        </Label>
-                        <Input
-                            className='input'
-                            name='startingPlace'
-                            value={newRoute.startingPlace}
-                            type='text'
-                            id='startingPlace'
-                            onChange={handleInputChange}
-                        />
-                    </div>
+                    <div className='add-route__group'>
+                        <div className='add-route__inner'>
+                            <Label className='label' htmlFor='starting-place'>
+                                Miejsce wyjazdu
+                            </Label>
+                            <Input
+                                className='input'
+                                name='startingPlace'
+                                value={newRoute.startingPlace}
+                                type='text'
+                                id='starting-place'
+                                onChange={handleInputChange}
+                            />
+                        </div>
 
-                    <div className='add-route__inner'>
-                        <Label className='label' htmlFor='destination'>
-                            Miejsce docelowe
-                        </Label>
-                        <Input
-                            className='input'
-                            name='destination'
-                            value={newRoute.destination}
-                            type='text'
-                            id='destination'
-                            onChange={handleInputChange}
-                        />
+                        <div className='add-route__inner'>
+                            <Label className='label' htmlFor='destination'>
+                                Miejsce docelowe
+                            </Label>
+                            <Input
+                                className='input'
+                                name='destination'
+                                value={newRoute.destination}
+                                type='text'
+                                id='destination'
+                                onChange={handleInputChange}
+                            />
+                        </div>
                     </div>
-                    <input className='date' type='date' />
+                    <div className='add-route__group'>
+                        <div className='add-route__inner'>
+                            <Label className='label' htmlFor='departure-date'>
+                                Data wyjazdu
+                            </Label>
+                            <Input
+                                className='input'
+                                name='departureDate'
+                                value={newRoute.departureDate}
+                                type='date'
+                                id='arriva-time'
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                        <div className='add-route__inner'>
+                            <Label className='label' htmlFor='departure-time'>
+                                Godzina wyjazdu
+                            </Label>
+                            <Input
+                                className='input'
+                                name='departureTime'
+                                value={newRoute.departureTime}
+                                type='time'
+                                id='departure-time'
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                        <div className='add-route__inner'>
+                            <Label className='label' htmlFor='arrival-time'>
+                                Godzina przyjazdu
+                            </Label>
+                            <Input
+                                className='input'
+                                name='arrivalTime'
+                                value={newRoute.arrivalTimne}
+                                type='time'
+                                id='arrival-time'
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                    </div>
                     <Button variant='text' onClick={handleFormSubmit}>
                         Dodaj przejazd
                     </Button>
