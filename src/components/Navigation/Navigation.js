@@ -20,34 +20,48 @@ const Navigation = () => {
     return (
         <nav className='nav'>
             <ul className='nav__wrapper'>
-                <NavLink className='nav__link' to='/'>
+                <NavLink
+                    className='nav__link'
+                    to='/'>
                     Strona główna
                 </NavLink>
-                <NavLink className='nav__link' to='/przejazdy'>
+                <NavLink
+                    className='nav__link'
+                    to='/przejazdy'>
                     Przejazdy
                 </NavLink>
                 {isAuthenticated && !isLoading && (
-                    <NavLink className='nav__link' to='/dodaj-przejazd'>
+                    <NavLink
+                        className='nav__link'
+                        to='/dodaj-przejazd'>
                         Dodaj nowy przejazd
                     </NavLink>
                 )}
                 {isAuthenticated && !isLoading && (
-                    <NavLink className='nav__link' to='/profil'>
+                    <NavLink
+                        className='nav__link'
+                        to='/profil'>
                         Profil
                     </NavLink>
                 )}
                 {!isAuthenticated && !isLoading && (
-                    <Button variant='text' onClick={loginHandler}>
+                    <Button
+                        variant='text'
+                        onClick={loginHandler}>
                         Zaloguj się
                     </Button>
                 )}
                 {!isAuthenticated && !isLoading && (
-                    <Button variant='contained' onClick={registerHandler}>
+                    <Button
+                        variant='contained'
+                        onClick={registerHandler}>
                         Zarejestruj się
                     </Button>
                 )}
                 {isAuthenticated && !isLoading && (
-                    <Button variant='text' onClick={logoutHandler}>
+                    <Button
+                        variant='text'
+                        onClick={logoutHandler}>
                         Wyloguj się
                     </Button>
                 )}

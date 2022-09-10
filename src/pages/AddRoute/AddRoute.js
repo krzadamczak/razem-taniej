@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "../../components/Button/Button";
 import Input from "../../components/Input/Input";
+import TestInput from "../../components/Input/TestInput";
 import Label from "../../components/Label/Label";
 import "./AddRoute.css";
 // Czy lepiej trzymać czas i datę wyjazdu w osobnych atrybutach w bazie danych,
@@ -32,6 +33,7 @@ const AddRoute = () => {
             <div className='add-route'>
                 <div className='add-route__form'>
                     <div className='add-route__group'>
+                        <h3 className='h3'>Dokąd chcesz pojechać?</h3>
                         <div className='add-route__inner'>
                             <Label className='label' htmlFor='starting-place'>
                                 Miejsce wyjazdu
@@ -61,6 +63,7 @@ const AddRoute = () => {
                         </div>
                     </div>
                     <div className='add-route__group'>
+                        <h3 className='h3'>Kiedy planujesz wyjechać?</h3>
                         <div className='add-route__inner'>
                             <Label className='label' htmlFor='departure-date'>
                                 Data wyjazdu
@@ -99,6 +102,9 @@ const AddRoute = () => {
                                 id='arrival-time'
                                 onChange={handleInputChange}
                             />
+                        </div>
+                        <div className='add-route__inner'>
+                            <TestInput />
                         </div>
                     </div>
                     <Button variant='text' onClick={handleFormSubmit}>

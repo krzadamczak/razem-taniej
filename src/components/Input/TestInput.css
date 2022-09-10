@@ -1,0 +1,24 @@
+.input-wrapper {
+    position: relative;
+}
+.label2 {
+    position: absolute;
+    top: calc(1rem / 2);
+    left: 1rem;
+    line-height: 1;
+    font-size: 0.875rem;
+    color: #4b4b4b;
+}
+.input2 {
+    padding: 2rem 10px 10px 1rem;
+    border: 1px solid #f0f0f0;
+    border-radius: 5px;
+    font-size: 1.125rem;
+}
+.input2:focus {
+    outline: none;
+    border: 1px solid #000;
+}
+.input2:focus ~ .label2 {
+    color: #000;
+}
