@@ -1,12 +1,29 @@
 import React from "react";
 import "./TestInput.css";
 
-const TestInput = () => {
+const TestInput = (props) => {
+    const inputSettings = {
+        value: props.value,
+        onClick: props.onClick,
+        name: props.name,
+        placeholder: props.placeholder,
+        type: props.type,
+        id: props.id,
+    };
+
+    const defaultClassName = "input2";
+    let externalPositioning = "";
+
+    if (props.hasOwnProperty("externalPositioning")) {
+        externalPositioning = `${props.externalPositioning}__${defaultClassName}`;
+    }
     return (
-        <div className='input-wrapper'>
-            <input className='input2' placeholder='At least 6 characters' type='text' id='password'></input>
-            <label className='label2' htmlFor='password'>
-                Name
+        <div className={`input-wrapper ${externalPositioning}`}>
+            <input className='input2' {...inputSettings}>
+                {props.children}
+            </input>
+            <label className='label2' htmlFor={props.id}>
+                {props.label}
             </label>
         </div>
     );

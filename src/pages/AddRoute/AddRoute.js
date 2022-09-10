@@ -104,7 +104,7 @@ const AddRoute = () => {
                             />
                         </div>
                         <div className='add-route__inner'>
-                            <TestInput />
+                            <TestInput label='Miejsce wyjazdu' name='startingPlace' id='starting-place' />
                         </div>
                     </div>
                     <Button variant='text' onClick={handleFormSubmit}>
