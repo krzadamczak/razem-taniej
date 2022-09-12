@@ -12,15 +12,17 @@ import "./index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    <BrowserRouter>
-        <Auth0ProviderWithistory>
-            <Routes>
-                <Route path='/' element={<IndexLayout />}>
-                    <Route index element={<HomePage />} />
-                    <Route path='przejazdy' element={<AllRoutes />} />
-                    <Route path='dodaj-przejazd' element={<AddRoute />} />
-                </Route>
-            </Routes>
-        </Auth0ProviderWithistory>
-    </BrowserRouter>
+    <React.StrictMode>
+        <BrowserRouter>
+            <Auth0ProviderWithistory>
+                <Routes>
+                    <Route path='/' element={<IndexLayout />}>
+                        <Route index element={<HomePage />} />
+                        <Route path='przejazdy' element={<AllRoutes />} />
+                        <Route path='dodaj-przejazd' element={<AddRoute />} />
+                    </Route>
+                </Routes>
+            </Auth0ProviderWithistory>
+        </BrowserRouter>
+    </React.StrictMode>
 );

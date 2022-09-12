@@ -8,7 +8,9 @@ const AddRoute = () => {
     const [newRoute, setNewRoute] = useState({
         startingPlace: "",
         destination: "",
-        // date: "",
+        departureDate: "",
+        departureTime: "",
+        arrivalTime: "",
     });
     const handleInputChange = (e) => {
         const { name, value } = e.currentTarget;
@@ -38,6 +40,7 @@ const AddRoute = () => {
                             id='starting-place'
                             type='text'
                             value={newRoute.startingPlace}
+                            onChange={handleInputChange}
                         />
                         <Input
                             label='Miejsce docelowe'
@@ -45,24 +48,34 @@ const AddRoute = () => {
                             type='text'
                             name='destination'
                             id='destination'
+                            onChange={handleInputChange}
                         />
                     </div>
                     <div className='add-route__group'>
                         <h3 className='h3'>Kiedy planujesz wyjechać?</h3>
-                        <Input label='Data wyjazdu' name='departureDate' id='departureDate' type='date' />
+                        <Input
+                            label='Data wyjazdu'
+                            name='departureDate'
+                            id='departure-date'
+                            type='date'
+                            onChange={handleInputChange}
+                            value={newRoute.departureDate}
+                        />
                         <Input
                             name='departureTime'
-                            value={newRoute.departureDate}
+                            value={newRoute.departureTime}
                             type='time'
                             id='departure-time'
                             label='Godzina wyjazdu'
+                            onChange={handleInputChange}
                         />
                         <Input
                             label='Godzina przyjazdu'
                             name='arrivalTime'
                             id='arrival-time'
                             type='time'
-                            value={newRoute.arrivalTimne}
+                            value={newRoute.arrivalTime}
+                            onChange={handleInputChange}
                         />
                     </div>
                     <Button variant='text' onClick={handleFormSubmit}>
