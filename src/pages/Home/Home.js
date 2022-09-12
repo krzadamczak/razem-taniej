@@ -1,7 +1,6 @@
 import React from "react";
 import Button from "../../components/Button/Button";
 import Input from "../../components/Input/Input";
-import Label from "../../components/Label/Label";
 
 import "./Home.css";
 import HomeIcon from "./Home_1.svg";
@@ -22,18 +21,8 @@ const HomePage = () => {
                 <div className='where-to-go__z-index'>
                     <h2 className='h2 where-to-go__h2'>Gdzie chcesz jechać?</h2>
                     <div className='where-to-go__form'>
-                        <div className='where-to-go__inner'>
-                            <Label className='label' htmlFor='start-place'>
-                                Miejsce wyjazdu
-                            </Label>
-                            <Input className='input' type='text' id='start-place' />
-                        </div>
-                        <div className='where-to-go__inner'>
-                            <Label className='label' htmlFor='end-place'>
-                                Miejsce docelowe
-                            </Label>
-                            <Input className='input' type='text' id='end-place' />
-                        </div>
+                        <Input label='Miejsce wyjazdu' name='startingPlace' id='starting-place' type='text' />
+                        <Input label='Miejsce docelowe' type='text' name='destination' id='destination' />
                         <Button variant='contained'>Szukaj</Button>
                     </div>
                 </div>
