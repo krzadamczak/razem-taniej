@@ -1,5 +1,6 @@
 import dayjs from "dayjs";
 import React, { useState } from "react";
+import { useEffect } from "react";
 import Button from "../../components/Button/Button";
 import Input from "../../components/Input/Input";
 import "./AddRoute.css";
@@ -7,7 +8,6 @@ import "./AddRoute.css";
 // czy w trakcie wypełniania formularza połączyć w jeden atrybut departureDate?
 
 //TODO: Weryfikacja formularza.
-//TODO: Dodatkowe opcje - np. checkbox czy akceptuje zwierzęta.
 //TODO: Dodawanie informacji o osobie która wystawiła ogłoszenie.
 const AddRoute = () => {
     const [newRoute, setNewRoute] = useState({
@@ -17,18 +17,26 @@ const AddRoute = () => {
         departureTime: dayjs().format("HH:mm"),
         arrivalDate: dayjs().format("YYYY-MM-DD"),
         arrivalTime: dayjs().format("HH:mm"),
+        animals: false,
     });
     const handleInputChange = (e) => {
-        const { name, value } = e.currentTarget;
-
-        setNewRoute((prevNewRoute) => ({
-            ...prevNewRoute,
-            [name]: value,
-        }));
+        const { name, value, type } = e.currentTarget;
+        if (type === "checkbox") {
+            setNewRoute((prevNewRoute) => ({
+                ...prevNewRoute,
+                [name]: !prevNewRoute[name],
+            }));
+        } else {
+            setNewRoute((prevNewRoute) => ({
+                ...prevNewRoute,
+                [name]: value,
+            }));
+        }
     };
+
     const handleFormSubmit = (e) => {
         e.preventDefault();
-
+        console.log(newRoute);
         fetch("/api/routes", {
             method: "POST",
             headers: {
@@ -38,13 +46,12 @@ const AddRoute = () => {
         });
     };
 
-    console.log({ newRoute });
     return (
         <>
             <div className='add-route'>
                 <form onSubmit={handleFormSubmit} className='add-route__form'>
                     <div className='add-route__group'>
-                        <h3 className='h3'>Dokąd chcesz pojechać?</h3>
+                        <h3 className='h3'>Cel podróży</h3>
                         <Input
                             label='Miejsce wyjazdu'
                             name='startingPlace'
@@ -63,7 +70,7 @@ const AddRoute = () => {
                         />
                     </div>
                     <div className='add-route__group'>
-                        <h3 className='h3'>Kiedy planujesz wyjechać?</h3>
+                        <h3 className='h3'>Informacje o wyjeździe</h3>
                         <Input
                             label='Data wyjazdu'
                             name='departureDate'
@@ -81,6 +88,9 @@ const AddRoute = () => {
                             label='Godzina wyjazdu'
                             onChange={handleInputChange}
                         />
+                    </div>
+                    <div className='add-route__group'>
+                        <h3 className='h3'>Informacje o przyjeździe</h3>
                         <Input
                             label='Data przyjazdu'
                             name='arrivalDate'
@@ -97,6 +107,18 @@ const AddRoute = () => {
                             value={newRoute.arrivalTime}
                             onChange={handleInputChange}
                         />
+                    </div>
+                    <div className='add-route__group'>
+                        <h3>Dodatkowe informacje</h3>
+                        <label>
+                            <input
+                                type='checkbox'
+                                name='animals'
+                                onChange={handleInputChange}
+                                checked={newRoute.animals}
+                            />
+                            Zgadzam się na podróż ze zwierzętami
+                        </label>
                     </div>
                     <Button variant='text' type='submit' onClick={handleFormSubmit}>
                         Dodaj przejazd

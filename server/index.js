@@ -23,8 +23,17 @@ app.use(bodyParser.json());
 
 app.post("/api/routes", (req, res) => {
     const newRoute = async () => {
-        const { startingPlace, destination, departureDate, departureTime, arrivalTime, arrivalDate } = req.body;
-        const route = new Route({ startingPlace, destination, departureDate, departureTime, arrivalTime, arrivalDate });
+        const { startingPlace, destination, departureDate, departureTime, arrivalTime, arrivalDate, animals } =
+            req.body;
+        const route = new Route({
+            startingPlace,
+            destination,
+            departureDate,
+            departureTime,
+            arrivalTime,
+            arrivalDate,
+            animals,
+        });
         console.log({ route });
         await route.save();
     };

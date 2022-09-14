@@ -22,6 +22,7 @@ const AllRoutes = () => {
                         destination={item.destination}
                         arrivalTime={item.arrivalTime}
                         startingTime={item.startingTime}
+                        animals={item.animals}
                     />
                 );
             })}

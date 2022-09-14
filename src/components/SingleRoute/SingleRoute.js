@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../Button/Button";
 
 const SingleRoute = (props) => {
-    const { startingPlace, destination, departureTime, arrivalTime } = props;
+    const { startingPlace, destination, departureTime, arrivalTime, animals } = props;
     return (
         <div className='route'>
             <div className='route__header'>
@@ -18,7 +18,8 @@ const SingleRoute = (props) => {
             </div>
             <div className='route__additional-informations'>
                 <p>Wolna liczba miejsc: 2</p>
-                <p>Bez zwierząt</p>
+                <p>{animals}</p>
+                {animals ? <p>Możesz zabrać swojego zwierzaka ze sobą!</p> : <p>Przykro mi, bez zwierząt.</p>}
             </div>
             <div className='route__personal-info'>
                 <div className='route__driver'>

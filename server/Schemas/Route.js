@@ -7,6 +7,7 @@ const routeSchema = new mongoose.Schema({
     departureDate: Date,
     arrivalTime: String,
     arrivalDate: Date,
+    animals: Boolean,
 });
 
 module.exports = mongoose.model("Route", routeSchema);
