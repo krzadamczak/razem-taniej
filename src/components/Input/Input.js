@@ -13,7 +13,6 @@ const Input = (props) => {
         type: props.type,
         id: props.id,
     };
-    console.log("inputSettings", inputSettings);
 
     let externalPositioning = "";
 

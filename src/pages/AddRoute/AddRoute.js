@@ -1,25 +1,32 @@
+import dayjs from "dayjs";
 import React, { useState } from "react";
 import Button from "../../components/Button/Button";
 import Input from "../../components/Input/Input";
 import "./AddRoute.css";
 //NOTE: Czy lepiej trzymać czas i datę wyjazdu w osobnych atrybutach w bazie danych,
 // czy w trakcie wypełniania formularza połączyć w jeden atrybut departureDate?
+
+//TODO: Weryfikacja formularza
 const AddRoute = () => {
     const [newRoute, setNewRoute] = useState({
         startingPlace: "",
         destination: "",
-        departureDate: "",
-        departureTime: "",
-        arrivalTime: "",
+        departureDate: dayjs().format("YYYY-MM-DD"),
+        departureTime: dayjs().format("HH:mm"),
+        arrivalDate: dayjs().format("YYYY-MM-DD"),
+        arrivalTime: dayjs().format("HH:mm"),
     });
     const handleInputChange = (e) => {
         const { name, value } = e.currentTarget;
+
         setNewRoute((prevNewRoute) => ({
             ...prevNewRoute,
             [name]: value,
         }));
     };
-    const handleFormSubmit = () => {
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+
         fetch("/api/route", {
             method: "POST",
             headers: {
@@ -28,10 +35,12 @@ const AddRoute = () => {
             body: JSON.stringify(newRoute),
         });
     };
+
+    console.log({ newRoute });
     return (
         <>
             <div className='add-route'>
-                <div className='add-route__form'>
+                <form onSubmit={handleFormSubmit} className='add-route__form'>
                     <div className='add-route__group'>
                         <h3 className='h3'>Dokąd chcesz pojechać?</h3>
                         <Input
@@ -60,6 +69,7 @@ const AddRoute = () => {
                             type='date'
                             onChange={handleInputChange}
                             value={newRoute.departureDate}
+                            required
                         />
                         <Input
                             name='departureTime'
@@ -70,6 +80,14 @@ const AddRoute = () => {
                             onChange={handleInputChange}
                         />
                         <Input
+                            label='Data przyjazdu'
+                            name='arrivalDate'
+                            id='arrival-date'
+                            type='date'
+                            onChange={handleInputChange}
+                            value={newRoute.arrivalDate}
+                        />
+                        <Input
                             label='Godzina przyjazdu'
                             name='arrivalTime'
                             id='arrival-time'
@@ -78,10 +96,10 @@ const AddRoute = () => {
                             onChange={handleInputChange}
                         />
                     </div>
-                    <Button variant='text' onClick={handleFormSubmit}>
+                    <Button variant='text' type='submit' onClick={handleFormSubmit}>
                         Dodaj przejazd
                     </Button>
-                </div>
+                </form>
             </div>
         </>
     );

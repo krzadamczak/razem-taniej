@@ -4,7 +4,6 @@
     justify-content: center;
 }
 .add-route__form {
-    width: 20%;
     display: flex;
     flex-direction: column;
     gap: 50px;
@@ -12,6 +11,11 @@
 .add-route__inner {
     display: flex;
     flex-direction: column;
+}
+.add-route__group {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
 
 /* Tymczasowo */
