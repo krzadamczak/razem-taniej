@@ -11,6 +11,7 @@ const HomePage = () => {
         destination: "",
         destination2: "",
     });
+
     const handleInputChange = (e) => {
         const { name, value } = e.currentTarget;
         setformData((prevformData) => ({
@@ -48,12 +49,6 @@ const HomePage = () => {
                             id='destination'
                             value={formData.destination}
                             onChange={handleInputChange}
-                        />
-                        <input
-                            className='input'
-                            onChange={handleInputChange}
-                            name='destination2'
-                            value={formData.destination2}
                         />
                         <Button variant='contained'>Szukaj</Button>
                     </div>

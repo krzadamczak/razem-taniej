@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "../../components/Button/Button";
 import Input from "../../components/Input/Input";
 import "./AddRoute.css";
-// Czy lepiej trzymać czas i datę wyjazdu w osobnych atrybutach w bazie danych,
+//NOTE: Czy lepiej trzymać czas i datę wyjazdu w osobnych atrybutach w bazie danych,
 // czy w trakcie wypełniania formularza połączyć w jeden atrybut departureDate?
 const AddRoute = () => {
     const [newRoute, setNewRoute] = useState({
