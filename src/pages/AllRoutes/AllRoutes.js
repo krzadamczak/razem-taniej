@@ -13,7 +13,7 @@ const AllRoutes = () => {
     }, []);
 
     return (
-        <>
+        <div className='all-routes'>
             {allRoutes.map((item) => {
                 return (
                     <SingleRoute
@@ -25,7 +25,7 @@ const AllRoutes = () => {
                     />
                 );
             })}
-        </>
+        </div>
     );
 };
 
