@@ -27,7 +27,7 @@ const AddRoute = () => {
     const handleFormSubmit = (e) => {
         e.preventDefault();
 
-        fetch("/api/route", {
+        fetch("/api/routes", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

@@ -21,7 +21,7 @@ mongooseConnection();
 
 app.use(bodyParser.json());
 
-app.post("/api/route", (req, res) => {
+app.post("/api/routes", (req, res) => {
     const newRoute = async () => {
         const { startingPlace, destination, departureDate, departureTime, arrivalTime, arrivalDate } = req.body;
         const route = new Route({ startingPlace, destination, departureDate, departureTime, arrivalTime, arrivalDate });
@@ -31,6 +31,8 @@ app.post("/api/route", (req, res) => {
     newRoute();
     res.json({ response: "Request noticed!" });
 });
+
+app.get("/api/route");
 
 app.listen(3001, () => {
     console.log("Server is running");
