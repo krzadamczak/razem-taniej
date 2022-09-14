@@ -32,7 +32,13 @@ app.post("/api/routes", (req, res) => {
     res.json({ response: "Request noticed!" });
 });
 
-app.get("/api/route");
+app.get("/api/routes", (req, res) => {
+    const getRoutes = async () => {
+        const routes = await Route.find({});
+        res.json(routes);
+    };
+    getRoutes();
+});
 
 app.listen(3001, () => {
     console.log("Server is running");
