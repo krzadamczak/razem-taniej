@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import SingleRoute from "../../components/SingleRoute/SingleRoute";
 import "./AllRoutes.css";
-
+//TODO: Dodać opcje filtrowania - np. data, miejsce.
 const AllRoutes = () => {
     const [allRoutes, setAllRoutes] = useState([]);
     useEffect(() => {

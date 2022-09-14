@@ -4,7 +4,7 @@ import Input from "../../components/Input/Input";
 
 import "./Home.css";
 import HomeIcon from "./Home_1.svg";
-
+//TODO: Dodać opcję wyszukiwania połączeń.
 const HomePage = () => {
     const [formData, setformData] = useState({
         startingPlace: "",

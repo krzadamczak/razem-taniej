@@ -6,7 +6,9 @@ import "./AddRoute.css";
 //NOTE: Czy lepiej trzymać czas i datę wyjazdu w osobnych atrybutach w bazie danych,
 // czy w trakcie wypełniania formularza połączyć w jeden atrybut departureDate?
 
-//TODO: Weryfikacja formularza
+//TODO: Weryfikacja formularza.
+//TODO: Dodatkowe opcje - np. checkbox czy akceptuje zwierzęta.
+//TODO: Dodawanie informacji o osobie która wystawiła ogłoszenie.
 const AddRoute = () => {
     const [newRoute, setNewRoute] = useState({
         startingPlace: "",
