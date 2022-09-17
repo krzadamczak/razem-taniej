@@ -2,6 +2,7 @@ import dayjs from "dayjs";
 import React, { useState } from "react";
 import Button from "../../components/Button/Button";
 import Input from "../../components/Input/Input";
+import { useForm } from "../../hooks/useForm";
 import "./AddRoute.css";
 //NOTE: Czy lepiej trzymać czas i datę wyjazdu w osobnych atrybutach w bazie danych,
 // czy w trakcie wypełniania formularza połączyć w jeden atrybut departureDate?
@@ -9,6 +10,20 @@ import "./AddRoute.css";
 //TODO: Weryfikacja formularza.
 //TODO: Dodawanie informacji o osobie która wystawiła ogłoszenie.
 const AddRoute = () => {
+    const { handleSubmit, handleChange, data, errors } = useForm({
+        validations: {
+            startingPlace: {
+                required: {
+                    value: true,
+                    message: "Pole nie może być puste.",
+                },
+            },
+        },
+        onSubmit: () => alert("User submitted!"),
+        initialValues: {
+            startingPlace: "",
+        },
+    });
     const [newRoute, setNewRoute] = useState({
         startingPlace: "",
         destination: "",
@@ -48,7 +63,7 @@ const AddRoute = () => {
     return (
         <>
             <div className='add-route'>
-                <form onSubmit={handleFormSubmit} className='add-route__form'>
+                <form onSubmit={handleSubmit} className='add-route__form'>
                     <div className='add-route__group'>
                         <h3 className='h3'>Cel podróży</h3>
                         <Input
@@ -56,9 +71,10 @@ const AddRoute = () => {
                             name='startingPlace'
                             id='starting-place'
                             type='text'
-                            value={newRoute.startingPlace}
-                            onChange={handleInputChange}
+                            value={data.startingPlace}
+                            onChange={handleChange("startingPlace")}
                         />
+                        {errors.startingPlace && <p>{errors.startingPlace}</p>}
                         <Input
                             label='Miejsce docelowe'
                             value={newRoute.destination}
@@ -119,7 +135,7 @@ const AddRoute = () => {
                             Zgadzam się na podróż ze zwierzętami
                         </label>
                     </div>
-                    <Button variant='text' type='submit' onClick={handleFormSubmit}>
+                    <Button variant='text' type='submit'>
                         Dodaj przejazd
                     </Button>
                 </form>
