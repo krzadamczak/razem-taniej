@@ -72,7 +72,7 @@ const AddRoute = () => {
                             id='starting-place'
                             type='text'
                             value={data.startingPlace}
-                            onChange={handleChange("startingPlace")}
+                            onChange={handleChange()}
                         />
                         {errors.startingPlace && <p>{errors.startingPlace}</p>}
                         <Input

@@ -1,9 +1,10 @@
 import { useState } from "react";
 
 export const useForm = (options) => {
-    const [data, setData] = useState(options?.initialValue || {});
+    const [data, setData] = useState(options?.initialValues || {});
     const [errors, setErrors] = useState({});
-    const handleChange = (key, sanitizeFunction) => (e) => {
+    const handleChange = (sanitizeFunction) => (e) => {
+        const key = e.target.name;
         const value = sanitizeFunction ? sanitizeFunction(e.target.value) : e.target.value;
         setData((prevData) => ({ ...prevData, [key]: value }));
     };
