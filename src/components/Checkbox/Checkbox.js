@@ -16,16 +16,10 @@ const Checkbox = (props) => {
     }
 
     return (
-        <label className={`label-checkbox ${externalPositioning}`}>
-            <input type='checkbox' {...settings} />
+        <label className={`checkbox-wrapper ${externalPositioning}`}>
+            <input className='checkbox-wrapper__input' type='checkbox' {...settings} />
             {props.children}
         </label>
-        // <div className={`input-wrapper ${externalPositioning}`}>
-        //     <input className='input' {...settings} />
-        //     <label className='label' htmlFor={props.id}>
-        //         {props.label}
-        //     </label>
-        // </div>
     );
 };
 
