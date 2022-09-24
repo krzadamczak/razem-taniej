@@ -1,6 +1,7 @@
 import dayjs from "dayjs";
 import React, { useState } from "react";
 import Button from "../../components/Button/Button";
+import Checkbox from "../../components/Checkbox/Checkbox";
 import Input from "../../components/Input/Input";
 import { useForm } from "../../hooks/useForm";
 import "./AddRoute.css";
@@ -9,6 +10,7 @@ import "./AddRoute.css";
 
 //TODO: Weryfikacja formularza.
 //TODO: Dodawanie informacji o osobie która wystawiła ogłoszenie.
+//TODO: Dokończyć refaktoryzację formularza.
 const AddRoute = () => {
     const { handleSubmit, handleChange, data, errors } = useForm({
         validations: {
@@ -125,15 +127,10 @@ const AddRoute = () => {
                     </div>
                     <div className='add-route__group'>
                         <h3>Dodatkowe informacje</h3>
-                        <label>
-                            <input
-                                type='checkbox'
-                                name='animals'
-                                onChange={handleInputChange}
-                                checked={newRoute.animals}
-                            />
+
+                        <Checkbox name='animals' onChange={handleInputChange} checked={newRoute.animals}>
                             Zgadzam się na podróż ze zwierzętami
-                        </label>
+                        </Checkbox>
                     </div>
                     <Button variant='text' type='submit'>
                         Dodaj przejazd
