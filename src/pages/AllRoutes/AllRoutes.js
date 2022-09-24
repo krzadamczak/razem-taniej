@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import SingleRoute from "../../components/SingleRoute/SingleRoute";
+import Filter from "../../components/Filter/Filter";
 import "./AllRoutes.css";
 //TODO: Dodać opcje filtrowania - np. data, miejsce.
 const AllRoutes = () => {
@@ -13,20 +14,23 @@ const AllRoutes = () => {
     }, []);
 
     return (
-        <div className='all-routes'>
-            {allRoutes.map((item) => {
-                return (
-                    <SingleRoute
-                        key={item._id}
-                        startingPlace={item.startingPlace}
-                        destination={item.destination}
-                        arrivalTime={item.arrivalTime}
-                        startingTime={item.startingTime}
-                        animals={item.animals}
-                    />
-                );
-            })}
-        </div>
+        <>
+            <Filter />
+            <div className='all-routes'>
+                {allRoutes.map((item) => {
+                    return (
+                        <SingleRoute
+                            key={item._id}
+                            startingPlace={item.startingPlace}
+                            destination={item.destination}
+                            arrivalTime={item.arrivalTime}
+                            startingTime={item.startingTime}
+                            animals={item.animals}
+                        />
+                    );
+                })}
+            </div>
+        </>
     );
 };
 

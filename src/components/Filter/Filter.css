@@ -2,4 +2,10 @@
     background-color: #007bfa;
     padding: 2rem;
     display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+.filter__inner {
+    display: flex;
+    gap: 15px;
 }
