@@ -1,20 +1,51 @@
 import React from "react";
+import Button from "../Button/Button";
 import Checkbox from "../Checkbox/Checkbox";
 import Input from "../Input/Input";
 import "./Filter.css";
 
-const Filter = () => {
+const Filter = (props) => {
+    const handleInputChange = (e) => {
+        props.onFilterChange(e);
+    };
+    const handleFormSubmit = (e) => {
+        props.onFilterSubmit(e);
+    };
     return (
         <div className='filter'>
-            <div className='filter__inner'>
-                <Input label='Miejsce wyjazdu' />
-                <Input label='Miejsce przyjazdu' />
-                <Input label='Data' type='date' />
-                <Input label='Liczba wolnych miejsc' />
-            </div>
-            <div className='filter__inner'>
-                <Checkbox>Będę podróżować ze zwierzętami</Checkbox>
-            </div>
+            <form onSubmit={handleFormSubmit}>
+                <div className='filter__inner'>
+                    <Input
+                        onChange={handleInputChange}
+                        name='startingPlace'
+                        value={props.filterValues.startingPlace}
+                        label='Miejsce wyjazdu'
+                    />
+                    <Input
+                        onChange={handleInputChange}
+                        name='destination'
+                        value={props.filterValues.destination}
+                        label='Miejsce przyjazdu'
+                    />
+                    <Input
+                        onChange={handleInputChange}
+                        name='date'
+                        value={props.filterValues.date}
+                        label='Data'
+                        type='date'
+                    />
+                    <Input
+                        onChange={handleInputChange}
+                        name='availableSeats'
+                        value={props.filterValues.availableSeats}
+                        label='Liczba wolnych miejsc'
+                    />
+                </div>
+                <div className='filter__inner'>
+                    <Checkbox>Będę podróżować ze zwierzętami</Checkbox>
+                </div>
+                <Button>Szukaj</Button>
+            </form>
         </div>
     );
 };
