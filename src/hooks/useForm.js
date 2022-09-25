@@ -4,9 +4,18 @@ export const useForm = (options) => {
     const [data, setData] = useState(options?.initialValues || {});
     const [errors, setErrors] = useState({});
     const handleChange = (sanitizeFunction) => (e) => {
+        const type = e.target.type;
         const key = e.target.name;
         const value = sanitizeFunction ? sanitizeFunction(e.target.value) : e.target.value;
-        setData((prevData) => ({ ...prevData, [key]: value }));
+        console.log(value);
+        switch (type) {
+            case "checkbox":
+                setData((prevData) => ({ ...prevData, [key]: !prevData[key] }));
+                break;
+            default:
+                setData((prevData) => ({ ...prevData, [key]: value }));
+                break;
+        }
     };
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -38,6 +47,7 @@ export const useForm = (options) => {
                     valid = false;
                     newErrors[key] = validation.custom.message;
                 }
+                console.log(newErrors);
             }
 
             if (!valid) {
