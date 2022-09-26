@@ -3,6 +3,12 @@ import { useState } from "react";
 export const useForm = (options) => {
     const [data, setData] = useState(options?.initialValues || {});
     const [errors, setErrors] = useState({});
+    //Funkcja zwraca kolejną funkcję
+    // function handleChange(sannitizeFunction) {
+    //     return function (e) {
+    //         some code
+    //     };
+    // }
     const handleChange = (sanitizeFunction) => (e) => {
         const type = e.target.type;
         const key = e.target.name;
@@ -19,7 +25,7 @@ export const useForm = (options) => {
     };
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        console.log("before if", errors);
         const validations = options?.validations;
 
         if (validations) {
@@ -47,7 +53,6 @@ export const useForm = (options) => {
                     valid = false;
                     newErrors[key] = validation.custom.message;
                 }
-                console.log(newErrors);
             }
 
             if (!valid) {
@@ -55,8 +60,8 @@ export const useForm = (options) => {
                 return;
             }
         }
-
-        setErrors({});
+        // setErrors({});
+        console.log("after if", errors);
 
         if (options?.onSubmit) {
             options.onSubmit();

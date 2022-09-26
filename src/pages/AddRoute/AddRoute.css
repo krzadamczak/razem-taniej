@@ -6,16 +6,21 @@
 .add-route__form {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 3rem;
 }
-.add-route__inner {
+.add-route__first-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.add-route__second-inner {
     display: flex;
     flex-direction: column;
 }
 .add-route__group {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 3rem;
 }
 
 /* Tymczasowo */
