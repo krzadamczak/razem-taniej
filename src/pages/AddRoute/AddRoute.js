@@ -49,9 +49,11 @@ const AddRoute = () => {
             },
             departureTime: {
                 custom: {
-                    isValid: (time) => {
-                        const [hour, minute] = time.split(":");
-                        return dayjs(data.departureDate).hour(hour).minute(minute).isAfter(dayjs());
+                    isValid: () => {
+                        //NOTE: Jeżeli wyjazd jest w dzień dodawania, godzina musi być późniejsza niz aktualna.
+                        //W przeciwnym wypadku może być dowolna.
+                        const [departureHour, departureMinute] = data.departureTime.split(":");
+                        return dayjs(data.departureDate).hour(departureHour).minute(departureMinute).isAfter(dayjs());
                     },
                     message: "Godzina nie może być wsteczna",
                 },
@@ -94,7 +96,7 @@ const AddRoute = () => {
             startingPlace: "",
             destination: "",
             departureDate: dayjs().format("YYYY-MM-DD"),
-            departureTime: dayjs().add(30, "minute").format("HH:mm"),
+            departureTime: dayjs().format("HH:mm"),
             arrivalDate: dayjs().format("YYYY-MM-DD"),
             arrivalTime: dayjs().add(1, "hour").format("HH:mm"),
             animals: false,

@@ -25,7 +25,6 @@ export const useForm = (options) => {
     };
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("before if", errors);
         const validations = options?.validations;
 
         if (validations) {
@@ -34,18 +33,21 @@ export const useForm = (options) => {
             for (const key in validations) {
                 const value = data[key];
                 const validation = validations[key];
+                //NOTE: Kolejność sprawdzania ma znaczenie. Przykład: dodałem dwa sposoby sprawdzania - required i regexp.
+                //Jeżeli pierwszy jest required, komunikat, że pole jest puste, zostanie nadpisany przez komunikat o złym wzorze pomimo tego, że pole jest puste.
+                //Zmiana kolejności sprawdzania, czy inny sposób sprawdzania błędów?
+
+                //Wyrażenie po prawej stronie - jeżeli wartość przejdzie test znaczy, że jest prawidłowa, dlatego musimy odwrócić warunek.
+                if (validation?.pattern?.value && !RegExp(validation.pattern.value).test(value)) {
+                    valid = false;
+                    newErrors[key] = validation.pattern.message;
+                }
 
                 //Wyrażenie po prawej stronie - jeżeli value będzie np. pustrym stringiem zostanie przekonwerowane na true.
                 //Pusty string - false.
                 if (validation?.required?.value && !value) {
                     valid = false;
                     newErrors[key] = validation?.required?.message;
-                }
-
-                //Wyrażenie po prawej stronie - jeżeli wartość przejdzie test znaczy, że jest prawidłowa, dlatego musimy odwrócić warunek.
-                if (validation?.pattern?.value && !RegExp(validation.pattern.value).test(value)) {
-                    valid = false;
-                    newErrors[key] = validation.pattern.message;
                 }
 
                 //Wyrażenie po prawej stronie - musimy odwrócić warunek ponieważ jeżeli funkcja zwróci true znaczy, że wartość jest prawidłowa.
@@ -60,8 +62,7 @@ export const useForm = (options) => {
                 return;
             }
         }
-        // setErrors({});
-        console.log("after if", errors);
+        setErrors({});
 
         if (options?.onSubmit) {
             options.onSubmit();
