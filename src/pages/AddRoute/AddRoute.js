@@ -26,11 +26,19 @@ const AddRoute = () => {
                     value: true,
                     message: "Pole nie może być puste.",
                 },
+                pattern: {
+                    value: "\\D+",
+                    message: "Nazwa nie może składać się z cyfr.",
+                },
             },
             destination: {
                 required: {
                     value: true,
                     message: "Pole nie może być puste",
+                },
+                pattern: {
+                    value: "\\D+",
+                    message: "Nazwa nie może składać się z cyfr.",
                 },
             },
             departureDate: {
