@@ -50,7 +50,7 @@ const AddRoute = () => {
             departureTime: {
                 custom: {
                     isValid: () => {
-                        //NOTE: Jeżeli wyjazd jest w dzień dodawania, godzina musi być późniejsza niz aktualna.
+                        //TODO: Jeżeli wyjazd jest w dzień dodawania, godzina musi być późniejsza niz aktualna.
                         //W przeciwnym wypadku może być dowolna.
                         const [departureHour, departureMinute] = data.departureTime.split(":");
                         return dayjs(data.departureDate).hour(departureHour).minute(departureMinute).isAfter(dayjs());
