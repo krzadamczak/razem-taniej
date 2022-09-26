@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-
+//NOTE: Kto stworzył notatkę? Mogę użyć do tego atrybutu sub z obiektu user (auth0)
 const routeSchema = new mongoose.Schema({
     startingPlace: String,
     destination: String,
@@ -9,6 +9,7 @@ const routeSchema = new mongoose.Schema({
     arrivalDate: Date,
     animals: Boolean,
     createdAt: Date,
+    modifiedAt: Date,
 });
 
 module.exports = mongoose.model("Route", routeSchema);

@@ -34,6 +34,7 @@ app.post("/api/routes", (req, res) => {
             arrivalDate,
             animals,
             createdAt: new Date(),
+            modifiedAt: new Date(),
         });
         console.log({ route });
         await route.save();

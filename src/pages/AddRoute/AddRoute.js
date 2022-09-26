@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "../../components/Button/Button";
 import Checkbox from "../../components/Checkbox/Checkbox";
 import Input from "../../components/Input/Input";
@@ -6,6 +6,7 @@ import { useForm } from "../../hooks/useForm";
 import "./AddRoute.css";
 import dayjs from "dayjs";
 import * as isSameOrAfter from "dayjs/plugin/isSameOrAfter";
+import { useAuth0 } from "@auth0/auth0-react";
 
 dayjs.extend(isSameOrAfter);
 
@@ -15,9 +16,13 @@ dayjs.extend(isSameOrAfter);
 //TODO: Dodawanie informacji o osobie która wystawiła ogłoszenie.
 //TODO: Dokończyć refaktoryzację formularza.
 const AddRoute = () => {
+    const { user } = useAuth0();
     const isValidDate = (date) => {
         return dayjs(date).isSameOrAfter(dayjs().startOf("day"));
     };
+    useEffect(() => {
+        console.log(user);
+    });
 
     const { handleSubmit, handleChange, data, errors } = useForm({
         validations: {

@@ -56,7 +56,7 @@ const AllRoutes = () => {
                                 startingPlace={item.startingPlace}
                                 destination={item.destination}
                                 arrivalTime={item.arrivalTime}
-                                startingTime={item.startingTime}
+                                departureTime={item.departureTime}
                                 animals={item.animals}
                             />
                         );
