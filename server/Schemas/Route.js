@@ -8,6 +8,7 @@ const routeSchema = new mongoose.Schema({
     arrivalTime: String,
     arrivalDate: Date,
     animals: Boolean,
+    createdAt: Date,
 });
 
 module.exports = mongoose.model("Route", routeSchema);

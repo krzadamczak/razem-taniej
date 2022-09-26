@@ -33,6 +33,7 @@ app.post("/api/routes", (req, res) => {
             arrivalTime,
             arrivalDate,
             animals,
+            createdAt: new Date(),
         });
         console.log({ route });
         await route.save();
@@ -43,7 +44,7 @@ app.post("/api/routes", (req, res) => {
 
 app.get("/api/routes", (req, res) => {
     const getRoutes = async () => {
-        const routes = await Route.find({});
+        const routes = await Route.find({}).sort({ createdAt: -1 });
         res.json(routes);
     };
     getRoutes();
