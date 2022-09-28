@@ -25,13 +25,13 @@ const Filter = (props) => {
                         onChange={handleInputChange}
                         name='destination'
                         value={props.filterValues.destination}
-                        label='Miejsce przyjazdu'
+                        label='Miejsce docelowe'
                     />
                     <Input
                         onChange={handleInputChange}
                         name='date'
                         value={props.filterValues.date}
-                        label='Data'
+                        label='Data wyjazdu'
                         type='date'
                     />
                     <Input

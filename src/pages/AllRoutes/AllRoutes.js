@@ -28,6 +28,7 @@ const AllRoutes = () => {
     };
 
     useEffect(() => {
+        console.log(filterValues);
         fetch("/api/routes")
             .then((response) => response.json())
             .then((response) => setAllRoutes([...response]));

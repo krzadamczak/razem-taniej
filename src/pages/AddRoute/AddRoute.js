@@ -87,6 +87,19 @@ const AddRoute = () => {
                     message: "Godzina nie może być wsteczna",
                 },
             },
+            emptySeats: {
+                required: {
+                    value: true,
+                    message: "Pole nie może być puste",
+                },
+                custom: {
+                    isValid: (number) => {
+                        if (number <= 0) return false;
+                        else return true;
+                    },
+                    message: "Przynajmniej jedno miejsce musi być wolne.",
+                },
+            },
         },
         onSubmit: async () => {
             const response = await fetch("/api/routes", {
@@ -107,6 +120,7 @@ const AddRoute = () => {
             arrivalDate: dayjs().format("YYYY-MM-DD"),
             arrivalTime: dayjs().add(1, "hour").format("HH:mm"),
             animals: false,
+            emptySeats: 1,
         },
     });
 
@@ -199,6 +213,17 @@ const AddRoute = () => {
                     <div className='add-route__first-inner'>
                         <h3>Dodatkowe informacje</h3>
                         <div className='add-route__group'>
+                            <div className='add-route__second-inner'>
+                                <Input
+                                    label='Ilość wolnych miejsc'
+                                    name='emptySeats'
+                                    id='empty-seats'
+                                    type='number'
+                                    value={data.emptySeats}
+                                    onChange={handleChange()}
+                                />
+                                {errors.emptySeats && <p className='error'>{errors.emptySeats}</p>}
+                            </div>
                             <Checkbox name='animals' onChange={handleChange()} checked={data.animals}>
                                 Zgadzam się na podróż ze zwierzętami
                             </Checkbox>
