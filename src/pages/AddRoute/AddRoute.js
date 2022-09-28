@@ -88,14 +88,16 @@ const AddRoute = () => {
                 },
             },
         },
-        onSubmit: () => {
-            fetch("/api/routes", {
+        onSubmit: async () => {
+            const response = await fetch("/api/routes", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(data),
+                body: JSON.stringify({ ...data, createdBy: user.sub }),
             });
+            const responseAsText = await response.text();
+            console.log(responseAsText);
         },
         initialValues: {
             startingPlace: "",
