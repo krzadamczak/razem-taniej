@@ -4,6 +4,10 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const Route = require("./Schemas/Route");
+const User = require("./Schemas/User");
+const cors = require("cors");
+
+app.use(cors());
 
 dotenv.config();
 
@@ -23,8 +27,17 @@ app.use(bodyParser.json());
 
 app.post("/api/routes", (req, res) => {
     const newRoute = async () => {
-        const { startingPlace, destination, departureDate, departureTime, arrivalTime, arrivalDate, animals } =
-            req.body;
+        const {
+            startingPlace,
+            destination,
+            departureDate,
+            departureTime,
+            arrivalTime,
+            arrivalDate,
+            animals,
+            createdBy,
+        } = req.body;
+        console.log(req.body);
         const route = new Route({
             startingPlace,
             destination,
@@ -35,14 +48,17 @@ app.post("/api/routes", (req, res) => {
             animals,
             createdAt: new Date(),
             modifiedAt: new Date(),
+            createdBy,
         });
         console.log({ route });
         await route.save();
     };
     newRoute();
-    res.json({ response: "Request noticed!" });
+    res.sendStatus(200);
 });
-
+app.get("/", (req, res) => {
+    res.json({ msg: "OK" });
+});
 app.get("/api/routes", (req, res) => {
     const getRoutes = async () => {
         const routes = await Route.find({}).sort({ createdAt: -1 });
@@ -51,6 +67,19 @@ app.get("/api/routes", (req, res) => {
     getRoutes();
 });
 
-app.listen(3001, () => {
+app.post("/api/users", (req, res) => {
+    const saveUser = async () => {
+        const { user_id, email } = req.body.payload;
+        const user = new User({
+            userId: user_id,
+            email,
+        });
+
+        await user.save();
+    };
+    saveUser();
+});
+
+app.listen(process.env.PORT || 3001, () => {
     console.log("Server is running");
 });
