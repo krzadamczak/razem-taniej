@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import SingleRoute from "../../components/SingleRoute/SingleRoute";
 import Filter from "../../components/Filter/Filter";
+import { handleChange } from "../../helpers";
 import "./AllRoutes.css";
 //TODO: Dodać opcje filtrowania - np. data, miejsce.
 const AllRoutes = () => {
@@ -11,6 +12,7 @@ const AllRoutes = () => {
         destination: "",
         date: "",
         availableSeats: "",
+        animals: false,
     });
 
     const handleFilterChange = (e) => {
@@ -38,7 +40,7 @@ const AllRoutes = () => {
     return (
         <>
             <Filter
-                onFilterChange={handleFilterChange}
+                onFilterChange={handleChange(setFilterValues)}
                 onFilterSubmit={handleFilterSubmit}
                 filterValues={filterValues}
             />
@@ -47,7 +49,8 @@ const AllRoutes = () => {
                     .filter((item) => {
                         return (
                             item.startingPlace.toLowerCase().includes(filterValues.startingPlace.toLowerCase()) &&
-                            item.destination.toLowerCase().includes(filterValues.destination.toLowerCase())
+                            item.destination.toLowerCase().includes(filterValues.destination.toLowerCase()) &&
+                            (filterValues.animals === item.animals || item.animals)
                         );
                     })
                     .map((item) => {
@@ -58,6 +61,7 @@ const AllRoutes = () => {
                                 destination={item.destination}
                                 arrivalTime={item.arrivalTime}
                                 departureTime={item.departureTime}
+                                departureDate={item.departureDate}
                                 animals={item.animals}
                             />
                         );

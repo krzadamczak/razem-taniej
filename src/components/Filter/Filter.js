@@ -42,7 +42,9 @@ const Filter = (props) => {
                     />
                 </div>
                 <div className='filter__inner'>
-                    <Checkbox>Będę podróżować ze zwierzętami</Checkbox>
+                    <Checkbox name='animals' onChange={handleInputChange} checked={props.filterValues.animals}>
+                        Będę podróżować ze zwierzętami
+                    </Checkbox>
                 </div>
                 <Button>Szukaj</Button>
             </form>
