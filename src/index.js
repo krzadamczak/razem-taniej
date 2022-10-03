@@ -8,7 +8,12 @@ import HomePage from "./pages/Home/Home";
 import AllRoutes from "./pages/AllRoutes/AllRoutes";
 import AddRoute from "./pages/AddRoute/AddRoute";
 
+import "dayjs/locale/pl";
+
 import "./index.css";
+import dayjs from "dayjs";
+
+dayjs.locale("pl");
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
