@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import SingleRoute from "../../components/SingleRoute/SingleRoute";
 import Filter from "../../components/Filter/Filter";
 import { handleChange } from "../../helpers";
+import dayjs from "dayjs";
 import "./AllRoutes.css";
 //TODO: Dodać opcje filtrowania - np. data, miejsce.
 const AllRoutes = () => {
@@ -10,7 +11,7 @@ const AllRoutes = () => {
     const [filterValues, setFilterValues] = useState({
         startingPlace: "",
         destination: "",
-        date: "",
+        date: dayjs().format("YYYY-MM-DD"),
         availableSeats: "",
         animals: false,
     });
@@ -50,7 +51,9 @@ const AllRoutes = () => {
                         return (
                             item.startingPlace.toLowerCase().includes(filterValues.startingPlace.toLowerCase()) &&
                             item.destination.toLowerCase().includes(filterValues.destination.toLowerCase()) &&
-                            (filterValues.animals === item.animals || item.animals)
+                            (item.animals === filterValues.animals || item.animals) &&
+                            dayjs(item.departureDate).isSame(dayjs(filterValues.date), "day") &&
+                            (filterValues.date || item) //TODO: Jeżeli data nie jest podana wyswietlaj wszystkie wpisy.
                         );
                     })
                     .map((item) => {
