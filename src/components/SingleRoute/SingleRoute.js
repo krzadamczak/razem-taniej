@@ -1,14 +1,16 @@
 import React from "react";
 import Button from "../Button/Button";
+import dayjs from "dayjs";
 
 const SingleRoute = (props) => {
-    const { startingPlace, destination, departureTime, arrivalTime, animals } = props;
+    const { startingPlace, departureDate, destination, departureTime, arrivalTime, animals } = props;
     return (
         <div className='route'>
             <div className='route__header'>
                 <div className='route__column'>
                     <div className='route__place'>{startingPlace}</div>
                     <div className='route__time'>{departureTime}</div>
+                    <div className='route__date'>{dayjs(departureDate).format("ddd, DD.MM.YYYY")}</div>
                 </div>
                 <div className='arrow'>{">"}</div>
                 <div className='route__column'>
