@@ -11,7 +11,7 @@ const AllRoutes = () => {
     const [filterValues, setFilterValues] = useState({
         startingPlace: "",
         destination: "",
-        date: dayjs().format("YYYY-MM-DD"),
+        date: "",
         availableSeats: "",
         animals: false,
     });
@@ -27,7 +27,7 @@ const AllRoutes = () => {
 
     const handleFilterSubmit = (e) => {
         e.preventDefault();
-        console.log("test");
+        console.log(filterValues);
     };
 
     useEffect(() => {
@@ -52,8 +52,10 @@ const AllRoutes = () => {
                             item.startingPlace.toLowerCase().includes(filterValues.startingPlace.toLowerCase()) &&
                             item.destination.toLowerCase().includes(filterValues.destination.toLowerCase()) &&
                             (item.animals === filterValues.animals || item.animals) &&
-                            dayjs(item.departureDate).isSame(dayjs(filterValues.date), "day") &&
-                            (filterValues.date || item) //TODO: Jeżeli data nie jest podana wyswietlaj wszystkie wpisy.
+                            (dayjs(item.departureDate).isSame(dayjs(filterValues.date), "day") ||
+                                filterValues.date === "")
+                            //TODO: Jeżeli data nie jest podana wyswietlaj wszystkie wpisy.
+                            // (filterValues.date || item)
                         );
                     })
                     .map((item) => {
