@@ -12,43 +12,41 @@ const Filter = (props) => {
         props.onFilterSubmit(e);
     };
     return (
-        <div className='filter'>
-            <form onSubmit={handleFormSubmit}>
-                <div className='filter__inner'>
-                    <Input
-                        onChange={handleInputChange}
-                        name='startingPlace'
-                        value={props.filterValues.startingPlace}
-                        label='Miejsce wyjazdu'
-                    />
-                    <Input
-                        onChange={handleInputChange}
-                        name='destination'
-                        value={props.filterValues.destination}
-                        label='Miejsce docelowe'
-                    />
-                    <Input
-                        onChange={handleInputChange}
-                        name='date'
-                        value={props.filterValues.date}
-                        label='Data wyjazdu'
-                        type='date'
-                    />
-                    <Input
-                        onChange={handleInputChange}
-                        name='availableSeats'
-                        value={props.filterValues.availableSeats}
-                        label='Liczba wolnych miejsc'
-                    />
-                </div>
-                <div className='filter__inner'>
-                    <Checkbox name='animals' onChange={handleInputChange} checked={props.filterValues.animals}>
-                        Będę podróżować ze zwierzętami
-                    </Checkbox>
-                </div>
-                <Button>Szukaj</Button>
-            </form>
-        </div>
+        <form className='filter' onSubmit={handleFormSubmit}>
+            <div className='filter__inner'>
+                <Input
+                    onChange={handleInputChange}
+                    name='startingPlace'
+                    value={props.filterValues.startingPlace}
+                    label='Miejsce wyjazdu'
+                />
+                <Input
+                    onChange={handleInputChange}
+                    name='destination'
+                    value={props.filterValues.destination}
+                    label='Miejsce docelowe'
+                />
+                <Input
+                    onChange={handleInputChange}
+                    name='date'
+                    value={props.filterValues.date}
+                    label='Data wyjazdu'
+                    type='date'
+                />
+                <Input
+                    onChange={handleInputChange}
+                    name='availableSeats'
+                    value={props.filterValues.availableSeats}
+                    label='Liczba wolnych miejsc'
+                />
+            </div>
+            <div className='filter__second-inner'>
+                <span className='filter__title'>Dodatkowe informacje</span>
+                <Checkbox name='animals' onChange={handleInputChange} checked={props.filterValues.animals}>
+                    Będę podróżować ze zwierzętami
+                </Checkbox>
+            </div>
+        </form>
     );
 };
 

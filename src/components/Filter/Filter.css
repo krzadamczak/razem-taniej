@@ -1,11 +1,18 @@
 .filter {
-    background-color: #007bfa;
-    padding: 2rem;
     display: flex;
+    padding: 2rem;
     justify-content: center;
     gap: 100px;
+}
+.filter__title {
+    font-weight: 800;
 }
 .filter__inner {
     display: flex;
     gap: 15px;
+}
+.filter__second-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
