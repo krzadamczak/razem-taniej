@@ -12,7 +12,7 @@ const AllRoutes = () => {
         startingPlace: "",
         destination: "",
         date: "",
-        availableSeats: "",
+        availableSeats: 1,
         animals: false,
     });
 
@@ -38,6 +38,16 @@ const AllRoutes = () => {
         return () => {};
     }, []);
 
+    const filteredArray = allRoutes.filter((item) => {
+        return (
+            item.startingPlace.toLowerCase().includes(filterValues.startingPlace.toLowerCase()) &&
+            item.destination.toLowerCase().includes(filterValues.destination.toLowerCase()) &&
+            (item.animals === filterValues.animals || item.animals) &&
+            (dayjs(item.departureDate).isSame(dayjs(filterValues.date), "day") || filterValues.date === "") &&
+            (item.availableSeats >= filterValues.availableSeats || filterValues.availableSeats === "")
+        );
+    });
+
     return (
         <>
             <Filter
@@ -46,19 +56,9 @@ const AllRoutes = () => {
                 filterValues={filterValues}
             />
             <div className='all-routes'>
-                {allRoutes
-                    .filter((item) => {
-                        return (
-                            item.startingPlace.toLowerCase().includes(filterValues.startingPlace.toLowerCase()) &&
-                            item.destination.toLowerCase().includes(filterValues.destination.toLowerCase()) &&
-                            (item.animals === filterValues.animals || item.animals) &&
-                            (dayjs(item.departureDate).isSame(dayjs(filterValues.date), "day") ||
-                                filterValues.date === "")
-                            //TODO: Jeżeli data nie jest podana wyswietlaj wszystkie wpisy.
-                            // (filterValues.date || item)
-                        );
-                    })
-                    .map((item) => {
+                {filteredArray.length !== 0 ? (
+                    filteredArray.map((item) => {
+                        console.log(typeof item);
                         return (
                             <SingleRoute
                                 key={item._id}
@@ -68,9 +68,13 @@ const AllRoutes = () => {
                                 departureTime={item.departureTime}
                                 departureDate={item.departureDate}
                                 animals={item.animals}
+                                availableSeats={item.availableSeats}
                             />
                         );
-                    })}
+                    })
+                ) : (
+                    <p>Nie znaleźliśmy żadnych wyników, spróbuj rozszerzyć zakres filtrów.</p>
+                )}
             </div>
         </>
     );

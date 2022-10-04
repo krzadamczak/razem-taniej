@@ -36,8 +36,12 @@ const Filter = (props) => {
                 <Input
                     onChange={handleInputChange}
                     name='availableSeats'
+                    step='1'
+                    min='0'
+                    max='9'
                     value={props.filterValues.availableSeats}
                     label='Liczba wolnych miejsc'
+                    type='number'
                 />
             </div>
             <div className='filter__second-inner'>

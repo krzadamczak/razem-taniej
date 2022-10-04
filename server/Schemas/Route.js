@@ -11,7 +11,7 @@ const routeSchema = new mongoose.Schema({
     createdAt: Date,
     modifiedAt: Date,
     createdBy: String,
-    emptySeats: Number,
+    availableSeats: Number,
 });
 
 module.exports = mongoose.model("Route", routeSchema);

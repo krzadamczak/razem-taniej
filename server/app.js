@@ -36,6 +36,7 @@ app.post("/api/routes", (req, res) => {
             arrivalDate,
             animals,
             createdBy,
+            availableSeats,
         } = req.body;
         console.log(req.body);
         const route = new Route({
@@ -49,6 +50,7 @@ app.post("/api/routes", (req, res) => {
             createdAt: new Date(),
             modifiedAt: new Date(),
             createdBy,
+            availableSeats,
         });
         console.log({ route });
         await route.save();
