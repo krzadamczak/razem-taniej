@@ -7,6 +7,8 @@ import IndexLayout from "./pages/IndexLayout";
 import HomePage from "./pages/Home/Home";
 import AllRoutes from "./pages/AllRoutes/AllRoutes";
 import AddRoute from "./pages/AddRoute/AddRoute";
+import Profile from "./pages/Profile/Profile";
+import ProfileUserInfo from "./components/ProfileUserInfo/ProfileUserInfo";
 
 import "dayjs/locale/pl";
 
@@ -25,6 +27,11 @@ root.render(
                         <Route index element={<HomePage />} />
                         <Route path='przejazdy' element={<AllRoutes />} />
                         <Route path='dodaj-przejazd' element={<AddRoute />} />
+                        <Route path='profil' element={<Profile />}>
+                            <Route index element={<ProfileUserInfo />} />
+                            <Route path='moje-przejazdy' element={<ProfileUserInfo />} />
+                            <Route path='ustawienia' element={<ProfileUserInfo />} />
+                        </Route>
                     </Route>
                 </Routes>
             </Auth0ProviderWithistory>
