@@ -58,7 +58,7 @@ const AllRoutes = () => {
             <div className='all-routes'>
                 {filteredArray.length !== 0 ? (
                     filteredArray.map((item) => {
-                        console.log(typeof item);
+                        console.log(item);
                         return (
                             <SingleRoute
                                 key={item._id}

@@ -14,27 +14,28 @@ import "dayjs/locale/pl";
 
 import "./index.css";
 import dayjs from "dayjs";
+import UserRoutes from "./components/UserRoutes/UserRoutes";
 
 dayjs.locale("pl");
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    <React.StrictMode>
-        <BrowserRouter>
-            <Auth0ProviderWithistory>
-                <Routes>
-                    <Route path='/' element={<IndexLayout />}>
-                        <Route index element={<HomePage />} />
-                        <Route path='przejazdy' element={<AllRoutes />} />
-                        <Route path='dodaj-przejazd' element={<AddRoute />} />
-                        <Route path='profil' element={<Profile />}>
-                            <Route index element={<ProfileUserInfo />} />
-                            <Route path='moje-przejazdy' element={<ProfileUserInfo />} />
-                            <Route path='ustawienia' element={<ProfileUserInfo />} />
-                        </Route>
+    // <React.StrictMode>
+    <BrowserRouter>
+        <Auth0ProviderWithistory>
+            <Routes>
+                <Route path='/' element={<IndexLayout />}>
+                    <Route index element={<HomePage />} />
+                    <Route path='przejazdy' element={<AllRoutes />} />
+                    <Route path='dodaj-przejazd' element={<AddRoute />} />
+                    <Route path='profil' element={<Profile />}>
+                        <Route index element={<ProfileUserInfo />} />
+                        <Route path='moje-przejazdy' element={<UserRoutes />} />
+                        <Route path='ustawienia' element={<ProfileUserInfo />} />
                     </Route>
-                </Routes>
-            </Auth0ProviderWithistory>
-        </BrowserRouter>
-    </React.StrictMode>
+                </Route>
+            </Routes>
+        </Auth0ProviderWithistory>
+    </BrowserRouter>
+    // </React.StrictMode>
 );
