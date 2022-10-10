@@ -10,7 +10,10 @@ const routeSchema = new mongoose.Schema({
     animals: Boolean,
     createdAt: Date,
     modifiedAt: Date,
-    createdBy: String,
+    createdBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+    },
     availableSeats: Number,
 });
 

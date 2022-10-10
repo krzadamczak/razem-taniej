@@ -38,7 +38,11 @@ app.post("/api/routes", (req, res) => {
             createdBy,
             availableSeats,
         } = req.body;
-        console.log(req.body);
+
+        const user = await User.findOne({ userId: createdBy });
+        //NOTE: Szukałem po atrybucie createdBy, którego nie było
+        //u wcześniejszych użytkowników w Schema dlatego nie wyszukiwało mi użytkownika.
+
         const route = new Route({
             startingPlace,
             destination,
@@ -49,10 +53,13 @@ app.post("/api/routes", (req, res) => {
             animals,
             createdAt: new Date(),
             modifiedAt: new Date(),
-            createdBy,
+            createdBy: user._id,
             availableSeats,
         });
-        console.log({ route });
+
+        user.routesCreated.push(route._id);
+        user.save();
+        console.log({ user });
         await route.save();
     };
     newRoute();
@@ -80,6 +87,15 @@ app.post("/api/users", (req, res) => {
         await user.save();
     };
     saveUser();
+});
+
+app.get("/api/users/:id", (req, res) => {
+    const getUser = async () => {
+        const user = await User.findOne({ userId: req.params.id }).populate("routesCreated");
+        console.log(user);
+        res.json(user);
+    };
+    getUser();
 });
 
 app.listen(process.env.PORT || 3001, () => {
