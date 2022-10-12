@@ -1,18 +1,25 @@
-import { useAuth0 } from "@auth0/auth0-react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useOutletContext } from "react-router-dom";
 
-const UserRoutes = () => {
-    const { user } = useAuth0();
-    const [userRoutes, setUserRoutes] = useState({});
+//NOTE:Czemu pojawia się błąd Cannot read properties of undefined (reading 'map') jeżeli podaję domyślny stan?
+const UserRoutes = (props) => {
+    const [data, isLoading] = useOutletContext();
     useEffect(() => {
-        if (!user) return;
-        const fetchData = async () => {
-            const response = await fetch(`/api/users/${user?.sub}`);
-            const data = await response.json();
-        };
-        fetchData();
-    }, [user]);
-    return <div>UserRoutes</div>;
+        console.log(data);
+        console.log(isLoading);
+    }, [isLoading]);
+
+    if (isLoading) return <p>Wczytywanie danych...</p>;
+    return (
+        <div>
+            {console.log("xxx", data)}
+            {data.routesCreated.map((route) => (
+                <p>
+                    {route.startingPlace} = {route.destination}
+                </p>
+            ))}
+        </div>
+    );
 };
 
 export default UserRoutes;

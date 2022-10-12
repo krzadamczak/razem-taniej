@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
-import Input from "../../components/Input/Input";
-
+import { useAuth0 } from "@auth0/auth0-react";
 import "./Profile.css";
+import { useFetch } from "../../hooks/useFetch";
 
 const Profile = () => {
+    const { user } = useAuth0();
+    const [data, isLoading] = useFetch(`/api/users/${user?.sub}`, {
+        defaultState: {
+            data: {
+                routesCreated: [
+                    {
+                        startingPlace: "",
+                        destination: "",
+                    },
+                ],
+            },
+        },
+    });
+
     return (
         <div className='profile'>
             <aside className='profile__sidebar'>
@@ -18,7 +32,7 @@ const Profile = () => {
                     <NavLink to='ustawienia'>Settings</NavLink>
                 </ul>
             </aside>
-            <Outlet />
+            <Outlet context={[data, isLoading]} />
         </div>
     );
 };
