@@ -21,6 +21,11 @@
 }
 .menu__item {
     list-style: none;
+    text-decoration: none;
+    color: #000;
+}
+.menu__item--active {
+    font-weight: 800;
 }
 
 .profile__main {

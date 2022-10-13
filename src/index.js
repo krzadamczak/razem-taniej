@@ -29,8 +29,7 @@ root.render(
                     <Route path='przejazdy' element={<AllRoutes />} />
                     <Route path='dodaj-przejazd' element={<AddRoute />} />
                     <Route path='profil' element={<Profile />}>
-                        <Route index element={<ProfileUserInfo />} />
-                        <Route path='moje-przejazdy' element={<UserRoutes />} />
+                        <Route index element={<UserRoutes />} />
                         <Route path='ustawienia' element={<ProfileUserInfo />} />
                     </Route>
                 </Route>

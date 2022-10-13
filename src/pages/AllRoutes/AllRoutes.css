@@ -6,37 +6,3 @@
     gap: 25px;
     margin: auto;
 }
-.route {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    border: 1px solid #f0f0f0;
-    border-radius: 5px;
-    padding: 1rem 2rem;
-    min-width: 500px;
-}
-.route__header {
-    display: flex;
-    gap: 25px;
-}
-.route__place {
-    font-weight: 800;
-    font-size: 1.3rem;
-}
-.route__time {
-    font-size: 0.9rem;
-}
-.route__additional-information {
-    font-size: 0.9rem;
-}
-.route__personal-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-.route__driver {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    font-size: 0.9rem;
-}

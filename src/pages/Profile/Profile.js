@@ -6,18 +6,7 @@ import { useFetch } from "../../hooks/useFetch";
 
 const Profile = () => {
     const { user } = useAuth0();
-    const [data, isLoading] = useFetch(`/api/users/${user?.sub}`, {
-        defaultState: {
-            data: {
-                routesCreated: [
-                    {
-                        startingPlace: "",
-                        destination: "",
-                    },
-                ],
-            },
-        },
-    });
+    const [data, isLoading] = useFetch(`/api/users/${user?.sub}`);
 
     return (
         <div className='profile'>
@@ -27,9 +16,18 @@ const Profile = () => {
                     {/*NOTE: Czy użycie pojedyńczej kropki jest poprawne?
                     Link ma przenosić na stronę /profil
                     */}
-                    <NavLink to='.'>User Info</NavLink>
-                    <NavLink to='moje-przejazdy'>My Routes</NavLink>
-                    <NavLink to='ustawienia'>Settings</NavLink>
+                    <NavLink
+                        className={({ isActive }) => (isActive ? "menu__item menu__item--active" : "menu__item ")}
+                        to='.'
+                        end>
+                        My Routes
+                    </NavLink>
+                    <NavLink
+                        className={({ isActive }) => (isActive ? "menu__item menu__item--active" : "menu__item")}
+                        to='ustawienia'
+                        end>
+                        Settings
+                    </NavLink>
                 </ul>
             </aside>
             <Outlet context={[data, isLoading]} />
