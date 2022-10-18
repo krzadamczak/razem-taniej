@@ -1,7 +1,19 @@
 import React from "react";
 import Button from "../Button/Button";
 import dayjs from "dayjs";
-
+/*TODO: Edytowanie/usunięcie przejazdu
+1. Wygląd
+- Znalezienie ikonek i ich instalacja
+- Dodanie odpowiednich ikonek
+2. Edycja
+- Przejście na stronę z formularzem do edycji wpisu
+- Sprawdzenie czy mogę zmodyfikować wpis (np. jeżeli jest chociaż jedna potrwierdzona rezerwacja)
+- Wysłanie żadania do serwera ze zmienionym wpisem.
+- Obsłużenie żądania po stronie serwea i odesłanie odpowiedzi.
+3. Usunięcie
+- Wysłanie żądania do serwera z id wpisu do usunięcia.
+- Obsłużenie żądania po stronie serwea i odesłanie odpowiedzi.
+*/
 const SingleRouteAuthor = (props) => {
     const { startingPlace, departureDate, destination, departureTime, arrivalTime, animals, availableSeats } =
         props.data;

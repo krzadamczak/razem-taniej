@@ -13,8 +13,6 @@ dayjs.extend(isSameOrAfter);
 //NOTE: Czy lepiej trzymać czas i datę wyjazdu w osobnych atrybutach w bazie danych,
 // czy w trakcie wypełniania formularza połączyć w jeden atrybut departureDate?
 
-//TODO: Dodawanie informacji o osobie która wystawiła ogłoszenie.
-//TODO: Dokończyć refaktoryzację formularza.
 const AddRoute = () => {
     const { user } = useAuth0();
     const isValidDate = (date) => {

@@ -1,6 +1,6 @@
 import React from "react";
 import Input from "../Input/Input";
-
+/*TODO: Pomyśleć jakie ustawienia powinny się tutaj znaleźć*/
 const ProfileUserInfo = () => {
     return (
         <div className='profile__main'>

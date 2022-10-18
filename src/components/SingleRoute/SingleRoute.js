@@ -2,9 +2,28 @@ import React from "react";
 import Button from "../Button/Button";
 import dayjs from "dayjs";
 import "./SingleRoute.css";
+import { useAuth0 } from "@auth0/auth0-react";
+import { useFetch } from "../../hooks/useFetch";
+import { useApi } from "../../hooks/useApi";
+/*TODO: System rezerwacji
+- Użytkownik rezerwuje przejazd
+- Kierowca dostaje informację o rezerwacji - może potwierdzić lub odrzucić
+- Użytkownik dostaje odpowiedź od kierowcy (widoczne w profilu w zakładce rezerwacje)
+*/
 
 const SingleRoute = (props) => {
-    const { startingPlace, departureDate, destination, departureTime, arrivalTime, animals } = props;
+    const { id, startingPlace, departureDate, destination, departureTime, arrivalTime, animals } = props;
+    const { user } = useAuth0();
+    const [isLoading, error, data, operation] = useApi();
+    const handleReservation = (e) => {
+        operation(`/api/routes/reservations`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ routeId: id, userId: user.sub }),
+        });
+    };
     return (
         <div className='route'>
             <div className='route__header'>
@@ -29,7 +48,9 @@ const SingleRoute = (props) => {
                     <div className='route__name'>Krzysztof</div>
                     <div className='route__rating'>5</div>
                 </div>
-                <Button variant='text'>Napisz do kierowcy</Button>
+                <Button variant='text' onClick={handleReservation}>
+                    Zarezerwuj
+                </Button>
             </div>
         </div>
     );

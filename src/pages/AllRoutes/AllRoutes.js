@@ -5,7 +5,7 @@ import Filter from "../../components/Filter/Filter";
 import { handleChange } from "../../helpers";
 import dayjs from "dayjs";
 import "./AllRoutes.css";
-//TODO: Dodać opcje filtrowania - np. data, miejsce.
+
 const AllRoutes = () => {
     const [allRoutes, setAllRoutes] = useState([]);
     const [filterValues, setFilterValues] = useState({
@@ -62,6 +62,7 @@ const AllRoutes = () => {
                         return (
                             <SingleRoute
                                 key={item._id}
+                                id={item._id}
                                 startingPlace={item.startingPlace}
                                 destination={item.destination}
                                 arrivalTime={item.arrivalTime}

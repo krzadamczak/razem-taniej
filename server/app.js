@@ -76,6 +76,28 @@ app.get("/api/routes", (req, res) => {
     getRoutes();
 });
 
+app.put("/api/routes/reservations", (req, res) => {
+    const makeAReservation = async () => {
+        const user = await User.findOne({ userId: req.body.userId });
+        const route = await Route.findById(req.body.routeId);
+        console.log(route.potentialReservations[0].toString() === user._id.toString());
+        if (
+            !route.potentialReservations.some((item) => {
+                return item.toString() === user._id.toString();
+            })
+        ) {
+            route.potentialReservations.push(user._id);
+            route.save();
+        }
+        console.log("route", route);
+        res.json({ msg: "Możesz zgłosić tylko jedną rezerwację" });
+    };
+    makeAReservation();
+});
+app.get("/api/routes/reservations", (req, res) => {
+    res.json({ msg: "Test" });
+});
+
 app.post("/api/users", (req, res) => {
     const saveUser = async () => {
         const { user_id, email } = req.body.payload;
@@ -99,5 +121,5 @@ app.get("/api/users/:id", (req, res) => {
 });
 
 app.listen(process.env.PORT || 3001, () => {
-    console.log("Server is running");
+    console.log(`Server is running on port ${process.env.PORT || 3001}`);
 });

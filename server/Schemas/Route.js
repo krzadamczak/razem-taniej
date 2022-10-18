@@ -15,6 +15,18 @@ const routeSchema = new mongoose.Schema({
         ref: "User",
     },
     availableSeats: Number,
+    potentialReservations: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
+        },
+    ],
+    confirmedReservations: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
+        },
+    ],
 });
 
 module.exports = mongoose.model("Route", routeSchema);
