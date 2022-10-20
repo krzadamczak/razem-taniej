@@ -80,22 +80,32 @@ app.put("/api/routes/reservations", (req, res) => {
     const makeAReservation = async () => {
         const user = await User.findOne({ userId: req.body.userId });
         const route = await Route.findById(req.body.routeId);
-        console.log(route.potentialReservations[0].toString() === user._id.toString());
+
+        if (route.createdBy.toString() === user._id.toString()) {
+            return res.json({ msg: "Nie możesz zarezerwować własnego przejazdu" });
+        }
         if (
-            !route.potentialReservations.some((item) => {
+            route.reservations.unconfirmed.some((item) => {
                 return item.toString() === user._id.toString();
             })
         ) {
-            route.potentialReservations.push(user._id);
-            route.save();
+            console.log("Tylko jedna rezerwacja");
+            return res.json({ msg: "Możesz zgłosić tylko jedną rezerwację" });
         }
-        console.log("route", route);
-        res.json({ msg: "Możesz zgłosić tylko jedną rezerwację" });
+        user.myReservations.push(route._id);
+        route.reservations.unconfirmed.push(user._id);
+        user.save();
+        route.save();
+        res.status(200).json({ msg: "Rezerwacja została złożona" });
     };
     makeAReservation();
 });
 app.get("/api/routes/reservations", (req, res) => {
-    res.json({ msg: "Test" });
+    const getReservations = async () => {
+        const user = await User.findOne({ userId: req.params.id }).populate("myReservations", "-routesCreated");
+        res.json(user);
+    };
+    getReservations();
 });
 
 app.post("/api/users", (req, res) => {
@@ -113,11 +123,56 @@ app.post("/api/users", (req, res) => {
 
 app.get("/api/users/:id", (req, res) => {
     const getUser = async () => {
-        const user = await User.findOne({ userId: req.params.id }).populate("routesCreated");
-        console.log(user);
+        const user = await User.findOne({ userId: req.params.id }).populate([
+            {
+                path: "routesCreated",
+                populate: [
+                    {
+                        path: "reservations.confirmed",
+                        model: "User",
+                        select: "-routesCreated -myReservations",
+                    },
+                    {
+                        path: "reservations.unconfirmed",
+                        model: "User",
+                        select: "-routesCreated -myReservations",
+                    },
+                    {
+                        path: "reservations.rejected",
+                        model: "User",
+                        select: "-routesCreated -myReservations",
+                    },
+                ],
+            },
+            {
+                path: "myReservations",
+                select: "-reservations",
+            },
+        ]);
+
+        console.log("🚀 ~ getUser ~ user", user);
         res.json(user);
     };
     getUser();
+});
+app.put("/api/test", (req, res) => {
+    const confirmReservation = async () => {
+        console.log(req.body.routeId);
+        const user = await User.findById(req.body.userId);
+        const route = await Route.findById(req.body.routeId);
+        route.reservations.unconfirmed.forEach((reservation, index) => {
+            console.log(`${reservation.toString()} === ${user._id} - ${reservation.toString() === user._id}`);
+            if (reservation.toString() === user._id.toString()) {
+                route.reservations.unconfirmed.splice(index, 1);
+                route.reservations.confirmed.push(reservation);
+                route.save();
+                return;
+            }
+        });
+        // const indexToUpdate = route.reservations.unconfirmed.indexOf()
+        console.log("xxxxxxxx", route);
+    };
+    confirmReservation();
 });
 
 app.listen(process.env.PORT || 3001, () => {

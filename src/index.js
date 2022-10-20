@@ -15,6 +15,7 @@ import "dayjs/locale/pl";
 import "./index.css";
 import dayjs from "dayjs";
 import UserRoutes from "./components/UserRoutes/UserRoutes";
+import Reservations from "./components/Reservations/Reservations";
 
 dayjs.locale("pl");
 
@@ -31,6 +32,7 @@ root.render(
                     <Route path='profil' element={<Profile />}>
                         <Route index element={<UserRoutes />} />
                         <Route path='ustawienia' element={<ProfileUserInfo />} />
+                        <Route path='rezerwacje' element={<Reservations />} />
                     </Route>
                 </Route>
             </Routes>

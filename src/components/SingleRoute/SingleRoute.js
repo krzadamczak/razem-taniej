@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "../Button/Button";
 import dayjs from "dayjs";
 import "./SingleRoute.css";
@@ -24,6 +24,9 @@ const SingleRoute = (props) => {
             body: JSON.stringify({ routeId: id, userId: user.sub }),
         });
     };
+    useEffect(() => {
+        console.log(data);
+    }, [data]);
     return (
         <div className='route'>
             <div className='route__header'>
