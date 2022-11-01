@@ -3,9 +3,16 @@ import { NavLink } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./Navigation.css";
 import Button from "../Button/Button";
+import { useApi } from "../../hooks/useApi";
+import { useEffect } from "react";
+import { useState } from "react";
+import { useFetch } from "../../hooks/useFetch";
 
 const Navigation = () => {
-    const { isAuthenticated, isLoading, logout, loginWithRedirect } = useAuth0();
+    const { isAuthenticated, isLoading, logout, loginWithRedirect, user } = useAuth0();
+    const [userData, setUserData] = useState({});
+
+    const [data] = useFetch(`/api/users/${user?.sub}`);
 
     const logoutHandler = () => {
         logout({ returnTo: window.location.origin });
@@ -24,6 +31,7 @@ const Navigation = () => {
     return (
         <nav className='nav'>
             <ul className='nav__wrapper'>
+                {isAuthenticated && <p>Cześć, {data?.email}</p>}
                 <NavLink className='nav__link' to='/'>
                     Strona główna
                 </NavLink>

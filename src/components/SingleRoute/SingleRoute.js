@@ -49,7 +49,7 @@ const SingleRoute = (props) => {
             </div>
             <div className='route__personal-info'>
                 <div className='route__driver'>
-                    <div className='route__name'>{createdBy.email}</div>
+                    <div className='route__name'>{createdBy.email.split("@")[0]}</div>
                     <div className='route__rating'>5</div>
                 </div>
                 <Button variant='text' onClick={handleReservation}>
