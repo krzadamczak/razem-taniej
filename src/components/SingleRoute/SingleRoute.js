@@ -12,7 +12,8 @@ import { useApi } from "../../hooks/useApi";
 */
 
 const SingleRoute = (props) => {
-    const { id, startingPlace, departureDate, destination, departureTime, arrivalTime, animals } = props;
+    const { id, startingPlace, departureDate, destination, departureTime, arrivalTime, animals, createdBy } = props;
+    console.log({ createdBy });
     const { user } = useAuth0();
     const [isLoading, error, data, operation] = useApi();
     const handleReservation = (e) => {
@@ -48,7 +49,7 @@ const SingleRoute = (props) => {
             </div>
             <div className='route__personal-info'>
                 <div className='route__driver'>
-                    <div className='route__name'>Krzysztof</div>
+                    <div className='route__name'>{createdBy.email}</div>
                     <div className='route__rating'>5</div>
                 </div>
                 <Button variant='text' onClick={handleReservation}>

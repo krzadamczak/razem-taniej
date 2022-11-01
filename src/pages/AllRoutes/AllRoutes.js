@@ -34,6 +34,10 @@ const AllRoutes = () => {
         console.log(filterValues);
         fetch("/api/routes")
             .then((response) => response.json())
+            .then((response) => {
+                console.log("response", response);
+                return response;
+            })
             .then((response) => setAllRoutes([...response]));
         return () => {};
     }, []);
@@ -70,6 +74,7 @@ const AllRoutes = () => {
                                 departureDate={item.departureDate}
                                 animals={item.animals}
                                 availableSeats={item.availableSeats}
+                                createdBy={item.createdBy}
                             />
                         );
                     })

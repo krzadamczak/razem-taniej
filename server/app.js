@@ -70,7 +70,10 @@ app.get("/", (req, res) => {
 });
 app.get("/api/routes", (req, res) => {
     const getRoutes = async () => {
-        const routes = await Route.find({}).sort({ createdAt: -1 });
+        const routes = await Route.find({})
+            .populate("createdBy", "-routesCreated -myReservations")
+            .sort({ createdAt: -1 });
+        console.log("xxxxxxxxxxxxxxxxxxxx", routes);
         res.json(routes);
     };
     getRoutes();
