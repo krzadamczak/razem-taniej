@@ -1,0 +1,19 @@
+.reservations {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.single-route-short {
+    border: 1px solid black;
+}
+.reservations__title {
+    font-size: 1.5rem;
+}
+.reservations__subtitle {
+    font-size: 1.125rem;
+}
+.reservations__first-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}

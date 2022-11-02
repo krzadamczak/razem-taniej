@@ -15,7 +15,7 @@ const SingleRoute = (props) => {
     const { id, startingPlace, departureDate, destination, departureTime, arrivalTime, animals, createdBy } = props;
     console.log({ createdBy });
     const { user } = useAuth0();
-    const [isLoading, error, data, operation] = useApi();
+    const { isLoading, error, data, operation } = useApi();
     const handleReservation = (e) => {
         operation(`/api/routes/reservations`, {
             method: "PUT",

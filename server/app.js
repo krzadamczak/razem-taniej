@@ -159,23 +159,26 @@ app.get("/api/users/:id", (req, res) => {
     getUser();
 });
 app.put("/api/test", (req, res) => {
-    const confirmReservation = async () => {
-        console.log(req.body.routeId);
+    const handleReservation = async () => {
         const user = await User.findById(req.body.userId);
         const route = await Route.findById(req.body.routeId);
+        const status = req.body.status;
+        console.log("xxxxxxxxxxx", req.body);
         route.reservations.unconfirmed.forEach((reservation, index) => {
-            console.log(`${reservation.toString()} === ${user._id} - ${reservation.toString() === user._id}`);
             if (reservation.toString() === user._id.toString()) {
                 route.reservations.unconfirmed.splice(index, 1);
-                route.reservations.confirmed.push(reservation);
+                if (status === "accept") {
+                    route.reservations.confirmed.push(reservation);
+                } else {
+                    route.reservations.rejected.push(reservation);
+                }
                 route.save();
                 return;
             }
         });
-        // const indexToUpdate = route.reservations.unconfirmed.indexOf()
-        console.log("xxxxxxxx", route);
+        res.json({ msg: "Succes" });
     };
-    confirmReservation();
+    handleReservation();
 });
 
 app.listen(process.env.PORT || 3001, () => {

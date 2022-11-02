@@ -20,5 +20,5 @@ export const useApi = (url, options) => {
         }
     };
 
-    return [isLoading, error, data, operation];
+    return { isLoading, error, data, operation };
 };

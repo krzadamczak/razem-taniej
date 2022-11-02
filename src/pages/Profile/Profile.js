@@ -2,9 +2,26 @@ import { NavLink, Outlet } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useFetch } from "../../hooks/useFetch";
 import "./Profile.css";
+import { useState } from "react";
+import { useEffect } from "react";
 const Profile = () => {
     const { user } = useAuth0();
-    const [data, isLoading] = useFetch(`/api/users/${user?.sub}`);
+    // const [data, isLoading] = useFetch(`/api/users/${user?.sub}`);
+    const [data, setData] = useState();
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        if (!user?.sub) return;
+        const controller = new AbortController();
+        setIsLoading(true);
+        fetch(`/api/users/${user?.sub}`, { signal: controller.signal })
+            .then((res) => res.json())
+            .then((data) => setData(data))
+            .finally(() => setIsLoading(false));
+        return () => {
+            controller.abort();
+        };
+    }, [user]);
 
     return (
         <div className='profile'>
@@ -32,7 +49,7 @@ const Profile = () => {
                 </ul>
             </aside>
             <div className='profile__main'>
-                <Outlet context={[data, isLoading]} />
+                <Outlet context={[data, setData, isLoading, setIsLoading]} />
             </div>
         </div>
     );
